@@ -26,6 +26,8 @@
   <nav>
     <a href="#checks">What it checks</a>
     <a href="#export">Export</a>
+    <a href="manual.html">Manual</a>
+    <a href="forum/">Support</a>
     <a href="#status">Status</a>
     <a href="privacy.html">Privacy</a>
   </nav>
@@ -34,6 +36,7 @@
 <main>
   <section class="hero">
     <div class="wrap">
+      <img class="hero-icon" src="icon-512.png" alt="Dubbing QC app icon">
       <span class="badge">Alpha · testing with dubbing studios</span>
       <h1>Check the dub against the original.<br>Before the client does.</h1>
       <p class="lead">Dubbing QC compares a dub's dialogue stem with the original-version (OV) stem and lists the places a mixer should listen to — missing lines and efforts, reverb and pan that don't match, drifted sync, clicks, walla and laughs the dub dropped.</p>
@@ -43,9 +46,17 @@
         <a class="btn ghost" href="#checks">See what it catches</a>
       </div>
     </div>
-    <div class="shotwrap">
-      <img src="shot-results.png" alt="Dubbing QC results screen: a row of check tiles, mostly green, one flagged Blocker for a missing line, and a findings table with session timecode and measurement." loading="lazy">
-      <p class="shotcap">A real run — one of four issues it caught on a planted test session, down to the frame.</p>
+    <div class="shotwrap gallery">
+      <a class="shot" href="shot-ready.png" data-caption="Drop in the original and dub — the app reads format, length and frame rate from the files.">
+        <img src="shot-ready.png" alt="Dubbing QC main window: original and dub stem cards, ready to run." loading="lazy">
+      </a>
+      <a class="shot" href="shot-checking.png" data-caption="A full episode runs in under a minute.">
+        <img src="shot-checking.png" alt="Dubbing QC running a check, with a progress indicator over the stem cards." loading="lazy">
+      </a>
+      <a class="shot" href="shot-results.png" data-caption="One of four issues caught on a planted test session, down to the frame.">
+        <img src="shot-results.png" alt="Dubbing QC results screen: a row of check tiles, mostly green, one flagged Blocker for a missing line, and a findings table with session timecode and measurement." loading="lazy">
+      </a>
+      <p class="shotcap">A real run, start to finish — click any screen to see it full size.</p>
     </div>
   </section>
 
@@ -77,7 +88,9 @@
       <h2>Markers land straight in your DAW</h2>
       <p class="intro">Export writes the findings as DAW markers plus a PDF report — pick a format, drop it into your session, and step through the list against picture.</p>
       <div class="shotwrap" style="margin-top:0">
-        <img src="shot-ready.png" alt="Dubbing QC main window: original and dub stem cards, frame rate, OV language and optional printmaster inputs." loading="lazy">
+        <a class="shot" href="shot-ready.png" data-caption="Original and dub stem cards, frame rate, OV language and optional printmaster inputs.">
+          <img src="shot-ready.png" alt="Dubbing QC main window: original and dub stem cards, frame rate, OV language and optional printmaster inputs." loading="lazy">
+        </a>
       </div>
       <div class="daw-row">
         <span class="daw-pill">Pro Tools (.mid)</span>
@@ -121,8 +134,31 @@
 
 <footer><div class="wrap">
   <p>Dubbing QC · built by RedPixl s.r.o. · everything runs on your Mac.</p>
-  <nav><a href="privacy.html">Privacy</a></nav>
+  <nav><a href="manual.html">Manual</a><a href="forum/">Support</a><a href="privacy.html">Privacy</a></nav>
 </div></footer>
+
+<div id="lb" class="lb" onclick="this.classList.remove('open')">
+  <img id="lb-img" src="" alt="">
+  <p id="lb-cap"></p>
+</div>
+<script>
+(function () {
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lb-img');
+  var lbCap = document.getElementById('lb-cap');
+  document.querySelectorAll('a.shot').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      lbImg.src = a.getAttribute('href');
+      lbCap.textContent = a.getAttribute('data-caption') || '';
+      lb.classList.add('open');
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') lb.classList.remove('open');
+  });
+})();
+</script>
 
 </body>
 </html>

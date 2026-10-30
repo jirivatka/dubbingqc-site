@@ -54,6 +54,7 @@ nav a { color: var(--muted); text-decoration: none; }
 nav a:hover { color: var(--accent); }
 
 .hero { padding: 76px 0 56px; text-align: center; }
+.hero-icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 14px 34px rgba(0,0,0,0.16); margin-bottom: 22px; }
 .badge {
   display: inline-flex; align-items: center; gap: 7px; font: 600 12.5px/1 "IBM Plex Mono", monospace;
   letter-spacing: 0.4px; text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
@@ -76,6 +77,22 @@ nav a:hover { color: var(--accent); }
 .shotwrap { margin: 48px auto 0; max-width: 980px; padding: 0 24px; }
 .shotwrap img { width: 100%; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 30px 70px rgba(0,0,0,0.12); display: block; }
 .shotcap { text-align: center; color: var(--muted); font-size: 13.5px; margin-top: 12px; }
+
+.shotwrap.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.shotwrap.gallery .shotcap { grid-column: 1 / -1; }
+a.shot { display: block; cursor: zoom-in; border-radius: 14px; }
+a.shot img { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+a.shot:hover img { transform: translateY(-3px); box-shadow: 0 36px 80px rgba(0,0,0,0.18); }
+@media (max-width: 760px) { .shotwrap.gallery { grid-template-columns: 1fr; } }
+
+.lb {
+  position: fixed; inset: 0; background: rgba(8, 14, 11, 0.92); display: none;
+  flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 32px; z-index: 100; cursor: zoom-out;
+}
+.lb.open { display: flex; }
+.lb img { max-width: min(96vw, 1400px); max-height: 82vh; border-radius: 10px; box-shadow: 0 30px 90px rgba(0,0,0,0.5); }
+.lb p { color: #e4ede8; font-size: 14.5px; max-width: 760px; text-align: center; margin: 0; }
 
 section { padding: 64px 0; border-top: 1px solid var(--line); }
 section h2 { font-size: 34px; margin: 0 0 12px; text-align: center; }

@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual — Dubbing QC</title>
+<meta name="description" content="The full Dubbing QC tester's manual: install, prepare files, run a check, read the results, export markers to Pro Tools, Logic, Nuendo or Cubase, thresholds, and every check explained. Also downloadable as a PDF.">
+<meta name="theme-color" content="#127a52">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="icon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #f5f8f6;
+  --surface: #ffffff;
+  --ink: #15201b;
+  --muted: #5a6a63;
+  --line: #d9e2de;
+  --accent: #127a52;
+  --accent-soft: #e2f1ea;
+  --marker: #b98900;
+  --marker-soft: #fff4cc;
+  --warn: #a4521a;
+  --warn-soft: #fbece0;
+  --code-bg: #eef3f0;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1412;
+    --surface: #151e1a;
+    --ink: #e4ede8;
+    --muted: #97a8a0;
+    --line: #26332d;
+    --accent: #3ec48b;
+    --accent-soft: #15302a;
+    --marker: #f2c53d;
+    --marker-soft: #2d2710;
+    --warn: #f0a26a;
+    --warn-soft: #2e1f14;
+    --code-bg: #1b2621;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1412;
+  --surface: #151e1a;
+  --ink: #e4ede8;
+  --muted: #97a8a0;
+  --line: #26332d;
+  --accent: #3ec48b;
+  --accent-soft: #15302a;
+  --marker: #f2c53d;
+  --marker-soft: #2d2710;
+  --warn: #f0a26a;
+  --warn-soft: #2e1f14;
+  --code-bg: #1b2621;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 "IBM Plex Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  padding-inline: 20px;
+  padding-block: 0 64px;
+}
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
+}
+@media (max-width: 860px) { .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; } nav.toc { display: none; } }
+
+header.top {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-block: 40px 28px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 16px; }
+.appicon {
+  width: 56px; height: 56px; border-radius: 13px; flex: none;
+  background: linear-gradient(#1c9e68, #08583c);
+  display: grid; place-items: center;
+}
+.appicon svg { width: 40px; height: 40px; }
+h1 {
+  font-family: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700; font-size: 44px; line-height: 1; margin: 0; letter-spacing: 0.2px;
+}
+.sub { color: var(--muted); margin: 6px 0 0; font-size: 15px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: 500 12.5px/1 "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  padding: 7px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--muted);
+}
+.chip strong { color: var(--ink); font-weight: 500; }
+
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 14px; }
+nav.toc p { font: 600 11px/1 "IBM Plex Sans", sans-serif; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 0 0 12px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: s; }
+nav.toc a { display: block; padding: 5px 10px; border-radius: 6px; color: var(--ink); text-decoration: none; }
+nav.toc a:hover, nav.toc a:focus-visible { background: var(--accent-soft); color: var(--accent); outline: none; }
+
+main { min-width: 0; }
+section { padding-block: 8px 28px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+section:last-child { border-bottom: 0; }
+h2 {
+  font-family: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600; font-size: 30px; line-height: 1.15; margin: 0 0 14px; text-wrap: balance;
+}
+h3 { font-size: 17px; font-weight: 600; margin: 26px 0 8px; }
+p, li { max-width: 68ch; }
+p { margin: 0 0 12px; }
+ul, ol { margin: 0 0 14px; padding-left: 22px; }
+li { margin-bottom: 6px; }
+a { color: var(--accent); }
+code, .mono { font: 14px/1.4 "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+kbd { font: 500 13px "IBM Plex Mono", monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--surface); }
+.ui { font-weight: 600; }
+
+.lead { font-size: 18px; line-height: 1.55; max-width: 64ch; }
+.note, .warn {
+  border-radius: 8px; padding: 12px 16px; margin: 14px 0 16px; max-width: 72ch; font-size: 15px;
+}
+.note { background: var(--accent-soft); }
+.warn { background: var(--warn-soft); }
+.note strong, .warn strong { display: block; margin-bottom: 2px; }
+.warn strong { color: var(--warn); }
+.note strong { color: var(--accent); }
+
+.steps { counter-reset: step; list-style: none; padding-left: 0; }
+.steps > li { position: relative; padding-left: 40px; margin-bottom: 12px; }
+.steps > li::before {
+  counter-increment: step; content: counter(step);
+  position: absolute; left: 0; top: 1px; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: var(--bg); font: 600 13px/26px "IBM Plex Sans", sans-serif; text-align: center;
+}
+
+.tablewrap { overflow-x: auto; margin: 12px 0 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); font-weight: 600; background: var(--code-bg); }
+td.mk { white-space: nowrap; }
+.marker {
+  font: 500 12.5px/1 "IBM Plex Mono", monospace; display: inline-block; padding: 4px 7px; border-radius: 4px;
+  background: var(--marker-soft); color: var(--ink); border-left: 3px solid var(--marker);
+}
+.tag { font: 600 11px/1 "IBM Plex Sans", sans-serif; letter-spacing: 0.6px; text-transform: uppercase; padding: 3px 6px; border-radius: 4px; }
+.tag.b { background: var(--warn-soft); color: var(--warn); }
+.tag.m { background: var(--marker-soft); color: var(--marker); }
+.tag.r { background: var(--accent-soft); color: var(--accent); }
+
+.files { font: 14px/1.7 "IBM Plex Mono", monospace; background: var(--code-bg); border-radius: 8px; padding: 12px 16px; overflow-x: auto; white-space: pre; margin: 10px 0 16px; }
+
+.checklist { list-style: none; padding-left: 0; }
+.checklist li { padding-left: 28px; position: relative; }
+.checklist li::before { content: ""; position: absolute; left: 2px; top: 5px; width: 14px; height: 14px; border: 1.5px solid var(--accent); border-radius: 3px; }
+
+footer { max-width: 1080px; margin: 12px auto 0; color: var(--muted); font-size: 13px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+
+/* Print / PDF: A4, light, single column, no contents rail, nothing split across pages that shouldn't be. */
+@page { size: A4; margin: 16mm 15mm 18mm; }
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #ffffff; --surface: #ffffff; --ink: #15201b; --muted: #55655e; --line: #d4ddd9;
+    --accent: #127a52; --accent-soft: #e6f3ed; --marker: #b98900; --marker-soft: #fff4cc;
+    --warn: #a4521a; --warn-soft: #fbece0; --code-bg: #f0f4f2; color-scheme: light;
+  }
+  html { scroll-behavior: auto; }
+  body { font-size: 10.5pt; line-height: 1.5; padding: 0; }
+  nav.toc { display: none; }
+  .wrap { display: block; max-width: none; }
+  header.top { padding-block: 0 14px; margin-bottom: 18px; max-width: none; }
+  h1 { font-size: 30pt; }
+  h2 { font-size: 19pt; break-after: avoid; }
+  h3 { font-size: 12pt; break-after: avoid; }
+  p, li { max-width: none; }
+  section { padding-block: 4px 14px; margin-bottom: 16px; }
+  /* Long tables may break between rows (a whole-table "avoid" left page 5 empty); a row never splits. */
+  tr, .note, .warn, .steps > li, .files, .checklist li { break-inside: avoid; }
+  thead { display: table-header-group; }
+  /* An introductory sentence stays with what it introduces (page 1 ended on one orphaned line). */
+  p:has(+ .files), p:has(+ .tablewrap), p:has(+ ul), p:has(+ ol) { break-after: avoid; }
+  h2 + p, h2 + .lead { break-after: avoid; }
+  /* Short paragraphs never split across pages ("…the channel at / the end:"). */
+  p { orphans: 3; widows: 3; break-inside: avoid; }
+  table { font-size: 9.5pt; }
+  .files { font-size: 9pt; }
+  a { color: var(--ink); text-decoration: none; }
+  footer { max-width: none; }
+}
+</style>
+
+<style>
+  .sitenav { max-width: 1080px; margin: 0 auto; padding: 18px 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .sitenav a.mark { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: var(--ink); text-decoration: none; font-family: "Barlow Semi Condensed", sans-serif; }
+  .sitenav a.mark img { width: 26px; height: 26px; border-radius: 6px; display: block; }
+  .sitenav nav { display: flex; gap: 18px; font-size: 14px; }
+  .sitenav nav a { color: var(--muted); text-decoration: none; }
+  .sitenav nav a:hover { color: var(--accent); }
+  .pdfbar { max-width: 1080px; margin: 14px auto 0; padding: 0 24px; }
+  .pdfbar a.pdfbtn {
+    display: inline-flex; align-items: center; gap: 8px; font: 600 13.5px "IBM Plex Sans", sans-serif;
+    background: var(--accent-soft); color: var(--accent); border-radius: 8px; padding: 9px 14px; text-decoration: none;
+  }
+  .pdfbar a.pdfbtn:hover { opacity: 0.85; }
+  @media print { .sitenav, .pdfbar { display: none; } }
+</style>
+
+</head>
+<body>
+
+<div class="sitenav">
+  <a class="mark" href="index.html"><img src="icon-512.png" alt="">Dubbing QC</a>
+  <nav>
+    <a href="index.html#checks">What it checks</a>
+    <a href="index.html#export">Export</a>
+    <a href="manual.html">Manual</a>
+    <a href="forum/">Support</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</div>
+<div class="pdfbar"><a class="pdfbtn" href="DubbingQC-Manual.pdf" download>&#8681; Download as PDF</a></div>
+
+
+
+<header class="top">
+  <div class="brand">
+    <div class="appicon" aria-hidden="true">
+      <svg viewBox="0 0 40 40">
+        <rect x="4" y="7" width="32" height="11" rx="3" fill="#00281a" opacity=".35"/>
+        <rect x="4" y="22" width="32" height="11" rx="3" fill="#00281a" opacity=".35"/>
+        <g fill="#fff"><rect x="7" y="10" width="2" height="5" rx="1"/><rect x="11" y="9" width="2" height="7" rx="1"/><rect x="15" y="10.5" width="2" height="4" rx="1"/><rect x="19" y="8.5" width="2" height="8" rx="1"/><rect x="23" y="10" width="2" height="5" rx="1"/><rect x="27" y="9" width="2" height="7" rx="1"/><rect x="31" y="10.5" width="2" height="4" rx="1"/>
+        <rect x="7" y="25" width="2" height="5" rx="1"/><rect x="11" y="24" width="2" height="7" rx="1"/><rect x="27" y="24" width="2" height="7" rx="1"/><rect x="31" y="25.5" width="2" height="4" rx="1"/><rect x="16" y="27" width="9" height="1" rx=".5" opacity=".5"/></g>
+        <rect x="15" y="6" width="1.6" height="28" fill="#ffd60a"/><path d="M15 5h9l-2 2.5 2 2.5h-9z" fill="#ffd60a"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Dubbing QC</h1>
+      <p class="sub">Tester's manual — checks a dub against its original version and marks the problems in your DAW.</p>
+    </div>
+  </div>
+  <div class="meta">
+    <span class="chip">Version <strong>0.8 alpha</strong></span>
+    <span class="chip">macOS <strong>14 or later</strong></span>
+    <span class="chip">Apple Silicon + Intel</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Contents">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#first">Read this first</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#files">Prepare the files</a></li>
+      <li><a href="#episode">Check an episode</a></li>
+      <li><a href="#results">Read the results</a></li>
+      <li><a href="#markers">Markers in your DAW</a></li>
+      <li><a href="#season">Check a season</a></li>
+      <li><a href="#details">Studio and project details</a></li>
+      <li><a href="#settings">Thresholds</a></li>
+      <li><a href="#speech">Speech recognition</a></li>
+      <li><a href="#checks">What each check looks for</a></li>
+      <li><a href="#limits">Known limits</a></li>
+      <li><a href="#feedback">What to send back</a></li>
+      <li><a href="#trouble">Troubleshooting</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="first">
+      <h2>Read this first</h2>
+      <p class="lead">Dubbing QC compares a dubbed dialogue stem with the original-version (OV) dialogue stem and lists the places a dub mixer should listen to: missing lines and efforts, reverb and pan that differ from the OV, voice treatments that weren't copied, sync slips, cut-off line ends, clicks and more. The result is a set of markers for your own session and a PDF report.</p>
+      <p>This is an <strong>alpha</strong> for outside testing. Every threshold was measured on one 56-minute TV episode: against its delivery-QC report, against planted defects, and by ear. Your material is the first test beyond that, and your verdicts decide which thresholds hold.</p>
+      <div class="note"><strong>The findings are candidates, not verdicts.</strong>Every marker is a place to listen. The app never changes your audio and never sends it anywhere.</div>
+    </section>
+
+    <section id="install">
+      <h2>Install</h2>
+      <ol class="steps">
+        <li>Open <code>Dubbing QC 0.8-alpha.dmg</code> and drag <span class="ui">Dubbing QC</span> onto the Applications folder.</li>
+        <li>Start it from Applications. The first time, macOS asks whether you want to open an app downloaded from the Internet: click <span class="ui">Open</span>. The app is signed and notarised by Apple, so there's no "unidentified developer" block, even offline.</li>
+        <li>The first time it reads a folder on your Desktop, Documents or an external drive, macOS asks whether Dubbing QC may access it. Click <span class="ui">Allow</span>. Until you answer, the folder card says <em>Reading the folder…</em></li>
+      </ol>
+      <p>Nothing else is installed: no drivers, no plug-ins, no account.</p>
+    </section>
+
+    <section id="files">
+      <h2>Prepare the files</h2>
+      <p>Each version is one folder of <strong>split-mono 5.1 WAV files</strong>, one file per channel, named with the channel at the end:</p>
+      <div class="files">ENG Verze/                          CZE Verze/
+  Show_E18_ENG.L.wav                 Show_E18_CZE.L.wav
+  Show_E18_ENG.R.wav                 Show_E18_CZE.R.wav
+  Show_E18_ENG.C.wav                 Show_E18_CZE.C.wav
+  Show_E18_ENG.LFE.wav   (optional)  Show_E18_CZE.LFE.wav
+  Show_E18_ENG.Ls.wav                Show_E18_CZE.Ls.wav
+  Show_E18_ENG.Rs.wav                Show_E18_CZE.Rs.wav</div>
+      <ul>
+        <li>Use the <strong>dialogue (DX) stems</strong>, not full mixes. The OV folder holds the original-language DX, the dub folder the dubbed DX.</li>
+        <li>Both versions must be the <strong>same length and on the same timeline</strong>, starting at the same first sample. They may carry different embedded start timecodes (for example 00:00:00:00 and 08:00:00:00).</li>
+        <li>Tested with 48 kHz / 24-bit. Frame rates 23.976, 24, 25, 29.97 (drop-frame or not), 30, 50, 59.94 (drop-frame or not) and 60 fps. Drop-frame timecode is written with a semicolon, 01:00:00;00.</li>
+      </ul>
+    </section>
+
+    <section id="episode">
+      <h2>Check an episode</h2>
+      <ol class="steps">
+        <li>Drop the OV folder on the <span class="ui">Original version</span> card and the dub folder on the <span class="ui">Dub</span> card (or use <span class="ui">Choose…</span>). Each card then shows the format it found, for example <span class="mono">5.1 split mono · 48 kHz · 24-bit · 0:56:10</span>.</li>
+        <li>Check the frame rate. <span class="ui">Session start TC</span> can stay empty: the dub file's embedded start time (BWF) is used, so markers land in your session's timecode.</li>
+        <li>Optional: under <span class="ui">Printmasters</span>, add the OV and dub printmaster folders (split-mono 5.1, named like the stems). The two mixes are then lined up on their shared M&amp;E to the millisecond: a whole-mix offset, a dropped or added frame, or a slipped section is found, and the dub DX stem is checked against its own mix. File QC also compares the two printmasters' loudness: the dub must match the OV within ±0.5 LU (adjustable in Thresholds).</li>
+        <li>Press <span class="ui">Run QC</span> or <kbd>⌘</kbd> <kbd>↩</kbd>. An episode takes about 20 seconds (about 6 minutes with speech recognition on).</li>
+        <li>Press <span class="ui">Export</span> and choose a folder. See <a href="#markers">Markers in your DAW</a>.</li>
+      </ol>
+      <p>Hover over any control for a short explanation.</p>
+    </section>
+
+    <section id="results">
+      <h2>Read the results</h2>
+      <ul>
+        <li><strong>Tiles:</strong> one per check, with the number of findings. Red is a blocker (missing lines and efforts), orange a major issue, a green tick means nothing was found, and <em>off</em> means the check did not run. <strong>Click a tile</strong> to show only those findings in the table; click it again to show all.</li>
+        <li><strong>File QC:</strong> format, length, loudness (BS.1770), peaks, clipping, channel layout and room tone for both versions, and the dub's file names against the OV's: the frame rate in the name must match the session (Fail), the episode, version and stem must be the OV's (Fail), and any part missing, added or out of order compared with the OV's name is a Fail too. The File QC strip names the first failure and why, without opening Details. <span class="ui">Details</span> opens the full list.</li>
+        <li><strong>Review markers:</strong> candidates the audio can't judge on its own, exported as separate marker files to step through against picture (see below).</li>
+        <li><strong>The table:</strong> every finding with its session timecode, length, type and what was measured.</li>
+      </ul>
+      <h3>Main markers and review markers</h3>
+      <p>Three checks produce far more candidates than anyone wants in a session, and nothing in the audio says which ones a QC operator would flag:</p>
+      <ul>
+        <li><strong>Missing efforts</strong> (breaths, laughs, reactions): the 20 most audible become main markers; all the others, often 250 or more, go into an <em>effort review</em> file.</li>
+        <li><strong>Level jumps</strong> (a line much louder or quieter against the OV than its neighbours): all go into a <em>level review</em> file. In testing, most of them were intended performance differences.</li>
+        <li><strong>OV audio in the dub</strong> (the dub reuses the original recording: a kept song, walla, a breath): all go into an <em>OV audio review</em> file. In testing, every one was intended. Listen for an original-language line that should have been dubbed. With speech recognition on, any words heard are shown (<span class="mono">OV AUDIO, WORDS HEARD?</span>), but sung lyrics are recognised too.</li>
+      </ul>
+      <p>Import the review files onto a separate marker track, or leave them out.</p>
+    </section>
+
+    <section id="markers">
+      <h2>Markers in your DAW</h2>
+      <p><span class="ui">Export</span> writes everything into one folder named after the dub. The arrow next to it offers smaller sets:</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Choice</th><th>Writes</th></tr></thead>
+        <tbody>
+          <tr><td>Everything</td><td>Markers as <code>.mid</code> and <code>.csv</code>, the review markers, the PDF report, a README with import steps</td></tr>
+          <tr><td>Pro Tools / Logic + PDF</td><td><code>.mid</code> markers and the PDF</td></tr>
+          <tr><td>Nuendo / Cubase + PDF</td><td><code>.csv</code> markers and the PDF</td></tr>
+          <tr><td>PDF report only</td><td>The PDF</td></tr>
+          <tr><td>Markers only</td><td><code>.mid</code>, <code>.csv</code> or both, without the PDF</td></tr>
+        </tbody>
+      </table></div>
+      <p>The <span class="ui">Include review markers</span> switch in the same menu decides whether the effort, level and OV audio review files are added to marker exports.</p>
+
+      <h3>Pro Tools <span class="tag m">please test</span></h3>
+      <ol>
+        <li><span class="ui">File › Import › MIDI…</span> and choose the <code>.markers.mid</code> file.</li>
+        <li>Destination: <span class="ui">Clip List</span> (no MIDI track is created). Location: where the stem starts in your session.</li>
+        <li>Leave <span class="ui">Import Tempo Map from MIDI File</span> off if the session runs at 120 BPM, the default. The markers are written at 120 BPM; at another tempo they land in the wrong place.</li>
+      </ol>
+      <p>Markers arrive as memory locations. <strong>This hasn't been checked in Pro Tools yet</strong>; it's the most useful thing you can test.</p>
+
+      <h3>Nuendo / Cubase <span class="tag m">please test</span></h3>
+      <ol>
+        <li><span class="ui">Project › Project Setup</span>: set the frame rate the report used.</li>
+        <li><span class="ui">File › Import › Marker from CSV</span>, choose the <code>.markers.csv</code> file.</li>
+        <li>Assign columns: Name → Name, Timecode In → Start, Timecode Out → End, Description → Description. Using <em>Category</em> as the split column gives one marker track per kind of problem.</li>
+      </ol>
+      <p>Timecodes in the CSV are absolute session timecode. Also not yet checked in Nuendo.</p>
+
+      <h3>Logic Pro <span class="tag r">verified</span></h3>
+      <p><span class="ui">File › Open…</span> the <code>.markers.mid</code> file: a new project opens with all markers. Checked in Logic Pro 12.</p>
+    </section>
+
+    <section id="season">
+      <h2>Check a season</h2>
+      <ol class="steps">
+        <li>Switch the header from <span class="ui">Episode</span> to <span class="ui">Season</span>.</li>
+        <li>Drop a folder holding one subfolder per OV episode, and one holding one subfolder per dub episode.</li>
+        <li>Check the pairing table. Episodes pair by the episode code in the folder or file name (<span class="mono">S01E05</span>, <span class="mono">E0018</span>, <span class="mono">EP05</span>…). Without codes, they pair in name order, but only if both sides have the same number. Anything unpaired is listed; nothing is guessed.</li>
+        <li>Optional: under <span class="ui">Printmasters</span>, add an OV and a dub printmaster season folder (again one subfolder per episode). They are matched to the episodes by their code; the table's <span class="ui">Printmasters</span> column shows which episodes have both. Episodes without them are checked from the dialogue stems alone.</li>
+        <li><span class="ui">Run season</span> asks once where to save, then checks the episodes one after another. Each gets its own folder as soon as it's done, and <code>Season summary.csv</code> gets one row per episode. A broken episode is reported and the rest carry on.</li>
+      </ol>
+      <p>Click an episode in the table to see its results.</p>
+    </section>
+
+    <section id="details">
+      <h2>Studio and project details</h2>
+      <ul>
+        <li><strong>Studio</strong> (<span class="ui">Dubbing QC › Settings… › Studio</span>, set once): studio name, contact for the PDF footer, a default "QC by" name and a logo.</li>
+        <li><strong>Project</strong> (the document button in the header, per job): production, client, episode (read from the file name, editable), dub language, QC by, version/delivery and notes. They're remembered for the next episode; the button always shows the production and episode so an old name doesn't slip onto a new report.</li>
+      </ul>
+      <p>They're printed on the PDF, in the marker README and in the season summary, and stored on your Mac only.</p>
+    </section>
+
+    <section id="settings">
+      <h2>Thresholds</h2>
+      <p><span class="ui">Dubbing QC › Settings… › Thresholds</span> lets you switch any check off and adjust the main limits (sync shift, reverb gap, pan, EQ, how many efforts are marked, and others). Every limit shows its measured default, and <span class="ui">Reset to measured defaults</span> restores them.</p>
+      <p>Anything you change is printed in the PDF and the README, and the header shows an orange <span class="ui">Custom thresholds</span> badge. A loosened run can't be mistaken for a standard one.</p>
+    </section>
+
+    <section id="speech">
+      <h2>Speech recognition</h2>
+      <p>Two checks can use speech recognition: confirming a missing line by its actual words, and finding original-language speech left in the dub. It's <strong>off by default</strong> (the switch under the frame rate).</p>
+      <p>When switched on, recognition runs <strong>only on your Mac</strong>, with Apple's on-device model; the audio is never sent anywhere, which was checked by logging every network connection during a full run. macOS asks for permission once, and its standard dialog says speech data "will be sent to Apple" — that is Apple's wording for every app. You can leave it off: every other check works without it.</p>
+      <p>The OV language needs an on-device model (a ✓ in the language menu; English is always there). The dub's language needs none.</p>
+    </section>
+
+    <section id="checks">
+      <h2>What each check looks for</h2>
+      <p>With the marker name you'll see in your session, and how it held up on the test episode.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Marker</th><th>What it means</th><th>Test episode</th></tr></thead>
+        <tbody>
+          <tr><td class="mk"><span class="marker">MISSING LINE?</span></td><td>OV speech of about 1.5 s or more where the dub is silent. <span class="tag b">blocker</span></td><td>Found all planted muted lines; background chatter is rejected when speech recognition is on.</td></tr>
+          <tr><td class="mk"><span class="marker">EFFORT? #3 laughter</span></td><td>A close-miked breath, laugh or reaction in the OV where the dub is silent. The 20 most audible. <span class="tag b">blocker</span></td><td>Most were real in a first listening. All quieter ones are in the effort review file.</td></tr>
+          <tr><td class="mk"><span class="marker">LAUGH MISSING?</span></td><td>A laugh in the OV the dub does not have — also where the dub character is talking over it. Found by a laughter model (PANNs, Kong et al. 2020, CC BY 4.0) that runs on your Mac. <span class="tag b">blocker</span></td><td>23 of the 25 strongest were real missing laughs by ear, 2 unsure; none were in the delivery QC reports.</td></tr>
+          <tr><td class="mk"><span class="marker">WALLA MISSING?</span></td><td>Crowd or walla in the OV that the dub lacks or has much weaker. Needs both printmasters: the dub's walla is often on its own stem, and the printmasters let the app include it. Without them, the candidates go to a <em>walla review</em> file.</td><td>Found the delivery QC's "only one cheering, then walla" item. New; still being listened to.</td></tr>
+          <tr><td class="mk"><span class="marker">EXTRA? #2 sigh</span></td><td>A vocal sound in the dub where the OV is silent. The 10 most audible.</td><td>Most were real in a first listening.</td></tr>
+          <tr><td class="mk"><span class="marker">OV LANGUAGE IN DUB?</span></td><td>Original-language words spoken in the dub (needs speech recognition).</td><td>No false alarms after its second pass.</td></tr>
+          <tr><td class="mk"><span class="marker">SYNC +1500 ms</span></td><td>A whole dub line shifted against the OV by 0.5 s or more.</td><td>Catches shifts of about 0.8 s and up only.</td></tr>
+          <tr><td class="mk"><span class="marker">PM SYNC -40 ms</span></td><td>With printmasters: a stretch where the dub mix sits off the OV mix (a dropped frame, a slipped section). A whole-mix offset is a File QC fail instead.</td><td>Planted offsets and a dropped frame found to the millisecond; no false alarms on two real episodes.</td></tr>
+          <tr><td class="mk"><span class="marker">CUT-OFF LINE</span></td><td>A line still at full level when it stops: the edit chopped its tail.</td><td>Found both cuts heard, no false alarms. Provisional.</td></tr>
+          <tr><td class="mk"><span class="marker">REVERB 30 dB less than OV</span></td><td>The OV has reverb in the side channels, the dub is dry.</td><td>All reverb items of the delivery QC found, plus more confirmed by ear.</td></tr>
+          <tr><td class="mk"><span class="marker">REVERB +35 dB more than OV</span></td><td>The other way round: the dub has surround reverb where the OV is dry or mono.</td><td>Found the delivery QC's "no 5.1 reverb in OV" items on a second episode. New; still being listened to.</td></tr>
+          <tr><td class="mk"><span class="marker">PAN differs from OV</span></td><td>Left/right balance differs by 10 dB or more.</td><td>The delivery QC's pan item found, plus more by ear.</td></tr>
+          <tr><td class="mk"><span class="marker">EQ: dub lacks lows 34 dB</span></td><td>A voice treatment (phone, radio) on one version only, or a strongly different sound.</td><td>No false alarms; all planted phone EQs found.</td></tr>
+          <tr><td class="mk"><span class="marker">LFE MISSING</span> <span class="marker">LFE -15 dB vs OV</span> <span class="marker">LFE EXTRA (not in OV)</span> <span class="marker">LFE FULL-BAND</span></td><td>The dub dialogue stem's LFE against the OV's: missing where the OV has it, 10 dB or more lower or higher, present where the OV has none, or carrying full-band sound (dialogue routed to the LFE).</td><td>The test episodes have no LFE in their dialogue stems, so this was tested on planted LFE only: every planted case found.</td></tr>
+          <tr><td class="mk"><span class="marker">CLICK/POP</span> <span class="marker">CLIPPING C</span></td><td>Sample-level clicks, dropouts to zero, and full-scale clipping in the dub.</td><td>All planted clicks found.</td></tr>
+          <tr><td class="mk"><span class="marker">EFFORT REVIEW 12/277</span> <span class="marker">LEVEL +7.1 dB</span></td><td>The review files: every further missing effort, and every level jump of 7 dB or more.</td><td>Level: 2 of 13 heard were real. Judge by ear.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="limits">
+      <h2>Known limits</h2>
+      <ul>
+        <li>Thresholds come from <strong>one episode</strong>. Expect false alarms and misses on different material; that's what this test is for.</li>
+        <li>Sync is measured against the OV <em>audio</em>, not lip-sync against picture. From the dialogue stems alone only whole-line shifts of about 0.8 s and more are found; add the printmasters for frame-accurate sync.</li>
+        <li>Which breath a QC operator flags depends on the picture, so efforts are ranked, not judged.</li>
+        <li>Walla is only marked with both printmasters; without them the candidates go to a review file.</li>
+        <li>Split-mono 5.1 input only for the OV and dub dialogue stems; no interleaved files. A printmaster may instead be a stereo (2.0) downmix (10-08) — sync and loudness run on it the same way, but comparing it against the full 5.1 dub dialogue stem (the "Dub DX inside the dub printmaster" row) is unreliable, since the two sides then have different channel counts.</li>
+        <li>23.976 and drop-frame are new: checked against the published timecode tables, but not yet on a real session at those rates.</li>
+      </ul>
+    </section>
+
+    <section id="feedback">
+      <h2>What to send back</h2>
+      <p>Anything is useful. These help most:</p>
+      <ul class="checklist">
+        <li><strong>Pro Tools and Nuendo:</strong> did the markers import, and at the right timecode?</li>
+        <li><strong>False alarms:</strong> markers where there's nothing wrong. Note the marker name and timecode.</li>
+        <li><strong>Misses:</strong> problems you know are there that it didn't mark, with timecode.</li>
+        <li><strong>A client QC report</strong> for an episode you ran, if you can share it: comparing against it is the best measurement.</li>
+        <li><strong>Anything confusing</strong> in the app, the PDF or the marker names.</li>
+        <li>Your Mac model, macOS version and how long a run took.</li>
+      </ul>
+      <p>The exported folder (markers, README and PDF) holds everything needed to trace a finding, without any audio.</p>
+    </section>
+
+    <section id="trouble">
+      <h2>Troubleshooting</h2>
+      <div class="tablewrap"><table>
+        <thead><tr><th>You see</th><th>What to do</th></tr></thead>
+        <tbody>
+          <tr><td><em>The application "Dubbing QC" can't be opened.</em></td><td>The disk image was altered on its way to you: WhatsApp and some other chat apps re-package files they send. Get the <code>.dmg</code> by e-mail, AirDrop or a download link instead, delete the broken copy from Applications, and install again.</td></tr>
+          <tr><td>A card stays on <em>Reading the folder…</em></td><td>macOS is waiting for your answer to its folder-access question; the dialog may be behind other windows. Click <span class="ui">Allow</span>.</td></tr>
+          <tr><td><em>No .L.wav file in …</em></td><td>The folder has no file ending in <code>.L.wav</code>. Check the channel names (see <a href="#files">Prepare the files</a>).</td></tr>
+          <tr><td>Markers land at the wrong place in Pro Tools</td><td>Check the session runs at 120 BPM, and that the import location is where the stem starts.</td></tr>
+          <tr><td>Markers are shifted by hours</td><td>The stem's embedded start time differs from your session. Enter the session start in <span class="ui">Session start TC</span> and export again.</td></tr>
+          <tr><td>The <em>OV language</em> tile says <em>off</em></td><td>Speech recognition is off, or there is no on-device model for that language. Everything else ran normally.</td></tr>
+          <tr><td>A run is much slower than usual</td><td>Other heavy apps slow it down, especially with speech recognition on.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+  </main>
+</div>
+
+<footer>Dubbing QC 0.8 alpha · RedPixl s.r.o. · Everything runs on your Mac; no audio or report leaves it.</footer>
+
+</body>
+</html>
