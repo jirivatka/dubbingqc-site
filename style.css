@@ -122,6 +122,13 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
 footer p { color: var(--muted); font-size: 13.5px; margin: 0; }
 footer nav a { margin-left: 18px; }
 
+.totop { text-align: center; margin: 0; padding: 40px 0 0; }
+.totop a {
+  display: inline-flex; align-items: center; gap: 6px; font: 600 13.5px "IBM Plex Sans", sans-serif;
+  color: var(--muted); text-decoration: none;
+}
+.totop a:hover { color: var(--accent); }
+
 @media (max-width: 640px) {
   .hero h1 { font-size: 38px; }
   section { padding: 48px 0; }

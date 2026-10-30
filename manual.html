@@ -172,6 +172,13 @@ td.mk { white-space: nowrap; }
 .checklist li::before { content: ""; position: absolute; left: 2px; top: 5px; width: 14px; height: 14px; border: 1.5px solid var(--accent); border-radius: 3px; }
 
 footer { max-width: 1080px; margin: 12px auto 0; color: var(--muted); font-size: 13px; }
+.totop { text-align: center; margin: 0; padding: 40px 0 0; max-width: 1080px; margin-inline: auto; }
+.totop a {
+  display: inline-flex; align-items: center; gap: 6px; font: 600 13.5px "IBM Plex Sans", sans-serif;
+  color: var(--muted); text-decoration: none;
+}
+.totop a:hover { color: var(--accent); }
+@media print { .totop { display: none; } }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 html { scroll-behavior: smooth; }
@@ -226,7 +233,7 @@ html { scroll-behavior: smooth; }
 </style>
 
 </head>
-<body>
+<body id="top">
 
 <div class="sitenav">
   <a class="mark" href="index.html"><img src="icon-512.png" alt="">Dubbing QC</a>
@@ -482,7 +489,8 @@ html { scroll-behavior: smooth; }
   </main>
 </div>
 
-<footer>Dubbing QC 0.8 alpha · RedPixl s.r.o. · Everything runs on your Mac; no audio or report leaves it.</footer>
+<p class="totop"><a href="#top">&#8593; Back to top</a></p>
+<footer>Dubbing QC 0.8 alpha · Everything runs on your Mac; no audio or report leaves it. &copy; 2026 RedPixl s.r.o.</footer>
 
 </body>
 </html>
