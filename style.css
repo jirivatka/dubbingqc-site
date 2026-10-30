@@ -122,12 +122,16 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
 footer p { color: var(--muted); font-size: 13.5px; margin: 0; }
 footer nav a { margin-left: 18px; }
 
-.totop { text-align: center; margin: 0; padding: 40px 0 0; }
-.totop a {
-  display: inline-flex; align-items: center; gap: 6px; font: 600 13.5px "IBM Plex Sans", sans-serif;
-  color: var(--muted); text-decoration: none;
+.totop {
+  position: fixed; right: 22px; bottom: 22px; z-index: 50;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+  color: var(--muted); text-decoration: none; transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
-.totop a:hover { color: var(--accent); }
+.totop svg { width: 18px; height: 18px; fill: currentColor; }
+.totop:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+@media (max-width: 640px) { .totop { right: 14px; bottom: 14px; } }
 
 @media (max-width: 640px) {
   .hero h1 { font-size: 38px; }
