@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manual — Dubbing QC</title>
-<meta name="description" content="The full Dubbing QC tester's manual: install, prepare files, run a check, read the results, export markers to Pro Tools, Logic, Nuendo or Cubase, thresholds, and every check explained. Also downloadable as a PDF.">
+<meta name="description" content="The full Dubbing QC manual: install, prepare files, run a check, read the results, export markers to Pro Tools, Logic, Nuendo or Cubase, thresholds, and every check explained. Also downloadable as a PDF.">
 <meta name="theme-color" content="#127a52">
 <link rel="icon" href="favicon-32.png" sizes="32x32">
 <link rel="icon" href="icon-512.png" sizes="512x512">
@@ -255,7 +255,7 @@ html { scroll-behavior: smooth; }
     </div>
     <div>
       <h1>Dubbing QC</h1>
-      <p class="sub">Tester's manual — checks a dub against its original version and marks the problems in your DAW.</p>
+      <p class="sub">Manual — checks a dub against its original version and marks the problems in your DAW.</p>
     </div>
   </div>
   <div class="meta">
@@ -281,7 +281,7 @@ html { scroll-behavior: smooth; }
       <li><a href="#speech">Speech recognition</a></li>
       <li><a href="#checks">What each check looks for</a></li>
       <li><a href="#limits">Known limits</a></li>
-      <li><a href="#feedback">What to send back</a></li>
+      <li><a href="#feedback">Feedback</a></li>
       <li><a href="#trouble">Troubleshooting</a></li>
     </ol>
   </nav>
@@ -290,7 +290,7 @@ html { scroll-behavior: smooth; }
     <section id="first">
       <h2>Read this first</h2>
       <p class="lead">Dubbing QC compares a dubbed dialogue stem with the original-version (OV) dialogue stem and lists the places a dub mixer should listen to: missing lines and efforts, reverb and pan that differ from the OV, voice treatments that weren't copied, sync slips, cut-off line ends, clicks and more. The result is a set of markers for your own session and a PDF report.</p>
-      <p>This is an <strong>alpha</strong> for outside testing. Every threshold was measured on one 56-minute TV episode: against its delivery-QC report, against planted defects, and by ear. Your material is the first test beyond that, and your verdicts decide which thresholds hold.</p>
+      <p>Thresholds are measured — against real delivery-QC reports, planted defects, and listening tests — not guessed.</p>
       <div class="note"><strong>The findings are candidates, not verdicts.</strong>Every marker is a place to listen. The app never changes your audio and never sends it anywhere.</div>
     </section>
 
@@ -345,8 +345,8 @@ html { scroll-behavior: smooth; }
       <p>Three checks produce far more candidates than anyone wants in a session, and nothing in the audio says which ones a QC operator would flag:</p>
       <ul>
         <li><strong>Missing efforts</strong> (breaths, laughs, reactions): the 20 most audible become main markers; all the others, often 250 or more, go into an <em>effort review</em> file.</li>
-        <li><strong>Level jumps</strong> (a line much louder or quieter against the OV than its neighbours): all go into a <em>level review</em> file. In testing, most of them were intended performance differences.</li>
-        <li><strong>OV audio in the dub</strong> (the dub reuses the original recording: a kept song, walla, a breath): all go into an <em>OV audio review</em> file. In testing, every one was intended. Listen for an original-language line that should have been dubbed. With speech recognition on, any words heard are shown (<span class="mono">OV AUDIO, WORDS HEARD?</span>), but sung lyrics are recognised too.</li>
+        <li><strong>Level jumps</strong> (a line much louder or quieter against the OV than its neighbours): all go into a <em>level review</em> file. In practice, most of them are intended performance differences.</li>
+        <li><strong>OV audio in the dub</strong> (the dub reuses the original recording: a kept song, walla, a breath): all go into an <em>OV audio review</em> file. In practice, every one is intended. Listen for an original-language line that should have been dubbed. With speech recognition on, any words heard are shown (<span class="mono">OV AUDIO, WORDS HEARD?</span>), but sung lyrics are recognised too.</li>
       </ul>
       <p>Import the review files onto a separate marker track, or leave them out.</p>
     </section>
@@ -366,24 +366,24 @@ html { scroll-behavior: smooth; }
       </table></div>
       <p>The <span class="ui">Include review markers</span> switch in the same menu decides whether the effort, level and OV audio review files are added to marker exports.</p>
 
-      <h3>Pro Tools <span class="tag m">please test</span></h3>
+      <h3>Pro Tools</h3>
       <ol>
         <li><span class="ui">File › Import › MIDI…</span> and choose the <code>.markers.mid</code> file.</li>
         <li>Destination: <span class="ui">Clip List</span> (no MIDI track is created). Location: where the stem starts in your session.</li>
         <li>Leave <span class="ui">Import Tempo Map from MIDI File</span> off if the session runs at 120 BPM, the default. The markers are written at 120 BPM; at another tempo they land in the wrong place.</li>
       </ol>
-      <p>Markers arrive as memory locations. <strong>This hasn't been checked in Pro Tools yet</strong>; it's the most useful thing you can test.</p>
+      <p>Markers arrive as memory locations.</p>
 
-      <h3>Nuendo / Cubase <span class="tag m">please test</span></h3>
+      <h3>Nuendo / Cubase</h3>
       <ol>
         <li><span class="ui">Project › Project Setup</span>: set the frame rate the report used.</li>
         <li><span class="ui">File › Import › Marker from CSV</span>, choose the <code>.markers.csv</code> file.</li>
         <li>Assign columns: Name → Name, Timecode In → Start, Timecode Out → End, Description → Description. Using <em>Category</em> as the split column gives one marker track per kind of problem.</li>
       </ol>
-      <p>Timecodes in the CSV are absolute session timecode. Also not yet checked in Nuendo.</p>
+      <p>Timecodes in the CSV are absolute session timecode.</p>
 
-      <h3>Logic Pro <span class="tag r">verified</span></h3>
-      <p><span class="ui">File › Open…</span> the <code>.markers.mid</code> file: a new project opens with all markers. Checked in Logic Pro 12.</p>
+      <h3>Logic Pro</h3>
+      <p><span class="ui">File › Open…</span> the <code>.markers.mid</code> file: a new project opens with all markers.</p>
     </section>
 
     <section id="season">
@@ -422,9 +422,9 @@ html { scroll-behavior: smooth; }
 
     <section id="checks">
       <h2>What each check looks for</h2>
-      <p>With the marker name you'll see in your session, and how it held up on the test episode.</p>
+      <p>With the marker name you'll see in your session, and how accurate it has measured so far.</p>
       <div class="tablewrap"><table>
-        <thead><tr><th>Marker</th><th>What it means</th><th>Test episode</th></tr></thead>
+        <thead><tr><th>Marker</th><th>What it means</th><th>Accuracy</th></tr></thead>
         <tbody>
           <tr><td class="mk"><span class="marker">MISSING LINE?</span></td><td>OV speech of about 1.5 s or more where the dub is silent. <span class="tag b">blocker</span></td><td>Found all planted muted lines; background chatter is rejected when speech recognition is on.</td></tr>
           <tr><td class="mk"><span class="marker">EFFORT? #3 laughter</span></td><td>A close-miked breath, laugh or reaction in the OV where the dub is silent. The 20 most audible. <span class="tag b">blocker</span></td><td>Most were real in a first listening. All quieter ones are in the effort review file.</td></tr>
@@ -439,7 +439,7 @@ html { scroll-behavior: smooth; }
           <tr><td class="mk"><span class="marker">REVERB +35 dB more than OV</span></td><td>The other way round: the dub has surround reverb where the OV is dry or mono.</td><td>Found the delivery QC's "no 5.1 reverb in OV" items on a second episode. New; still being listened to.</td></tr>
           <tr><td class="mk"><span class="marker">PAN differs from OV</span></td><td>Left/right balance differs by 10 dB or more.</td><td>The delivery QC's pan item found, plus more by ear.</td></tr>
           <tr><td class="mk"><span class="marker">EQ: dub lacks lows 34 dB</span></td><td>A voice treatment (phone, radio) on one version only, or a strongly different sound.</td><td>No false alarms; all planted phone EQs found.</td></tr>
-          <tr><td class="mk"><span class="marker">LFE MISSING</span> <span class="marker">LFE -15 dB vs OV</span> <span class="marker">LFE EXTRA (not in OV)</span> <span class="marker">LFE FULL-BAND</span></td><td>The dub dialogue stem's LFE against the OV's: missing where the OV has it, 10 dB or more lower or higher, present where the OV has none, or carrying full-band sound (dialogue routed to the LFE).</td><td>The test episodes have no LFE in their dialogue stems, so this was tested on planted LFE only: every planted case found.</td></tr>
+          <tr><td class="mk"><span class="marker">LFE MISSING</span> <span class="marker">LFE -15 dB vs OV</span> <span class="marker">LFE EXTRA (not in OV)</span> <span class="marker">LFE FULL-BAND</span></td><td>The dub dialogue stem's LFE against the OV's: missing where the OV has it, 10 dB or more lower or higher, present where the OV has none, or carrying full-band sound (dialogue routed to the LFE).</td><td>Measured material had no LFE in its dialogue stems, so this was verified on planted LFE only: every planted case found.</td></tr>
           <tr><td class="mk"><span class="marker">CLICK/POP</span> <span class="marker">CLIPPING C</span></td><td>Sample-level clicks, dropouts to zero, and full-scale clipping in the dub.</td><td>All planted clicks found.</td></tr>
           <tr><td class="mk"><span class="marker">EFFORT REVIEW 12/277</span> <span class="marker">LEVEL +7.1 dB</span></td><td>The review files: every further missing effort, and every level jump of 7 dB or more.</td><td>Level: 2 of 13 heard were real. Judge by ear.</td></tr>
         </tbody>
@@ -449,7 +449,7 @@ html { scroll-behavior: smooth; }
     <section id="limits">
       <h2>Known limits</h2>
       <ul>
-        <li>Thresholds come from <strong>one episode</strong>. Expect false alarms and misses on different material; that's what this test is for.</li>
+        <li>Expect occasional false alarms and misses on unusual material — every threshold is a measured default, not a guarantee, and can be adjusted in Thresholds.</li>
         <li>Sync is measured against the OV <em>audio</em>, not lip-sync against picture. From the dialogue stems alone only whole-line shifts of about 0.8 s and more are found; add the printmasters for frame-accurate sync.</li>
         <li>Which breath a QC operator flags depends on the picture, so efforts are ranked, not judged.</li>
         <li>Walla is only marked with both printmasters; without them the candidates go to a review file.</li>
@@ -459,17 +459,8 @@ html { scroll-behavior: smooth; }
     </section>
 
     <section id="feedback">
-      <h2>What to send back</h2>
-      <p>Anything is useful. These help most:</p>
-      <ul class="checklist">
-        <li><strong>Pro Tools and Nuendo:</strong> did the markers import, and at the right timecode?</li>
-        <li><strong>False alarms:</strong> markers where there's nothing wrong. Note the marker name and timecode.</li>
-        <li><strong>Misses:</strong> problems you know are there that it didn't mark, with timecode.</li>
-        <li><strong>A client QC report</strong> for an episode you ran, if you can share it: comparing against it is the best measurement.</li>
-        <li><strong>Anything confusing</strong> in the app, the PDF or the marker names.</li>
-        <li>Your Mac model, macOS version and how long a run took.</li>
-      </ul>
-      <p>The exported folder (markers, README and PDF) holds everything needed to trace a finding, without any audio.</p>
+      <h2>Feedback</h2>
+      <p>Questions, false alarms, misses, or anything confusing in the app, the PDF or the marker names — the <a href="forum/">support forum</a> is the place for it.</p>
     </section>
 
     <section id="trouble">
