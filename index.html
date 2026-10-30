@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dubbing QC — Check a Dub Against the Original, Before You Ship It</title>
+<meta name="description" content="Dubbing QC is a Mac app for dubbing studios. It compares a dub's dialogue audio against the original version and flags what a QC pass would catch — missing lines, reverb and pan drift, sync, clicks, walla, laughs and more — then exports the findings as DAW markers for Pro Tools, Logic, Nuendo and Cubase.">
+<meta name="theme-color" content="#127a52">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="icon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Open Graph / social — fill in the canonical URL once the domain is registered -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dubbing QC — Check a Dub Against the Original, Before You Ship It">
+<meta property="og:description" content="Compares a dub's dialogue audio against the original version and flags what a QC pass would catch, then exports DAW markers for Pro Tools, Logic, Nuendo and Cubase.">
+<meta property="og:image" content="icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="mark" href="/"><img src="icon-512.png" alt="">Dubbing QC</a>
+  <nav>
+    <a href="#checks">What it checks</a>
+    <a href="#export">Export</a>
+    <a href="#status">Status</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</div></header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge">Alpha · testing with dubbing studios</span>
+      <h1>Check the dub against the original.<br>Before the client does.</h1>
+      <p class="lead">Dubbing QC compares a dub's dialogue stem with the original-version (OV) stem and lists the places a mixer should listen to — missing lines and efforts, reverb and pan that don't match, drifted sync, clicks, walla and laughs the dub dropped.</p>
+      <p class="sub">Runs entirely on your Mac. Nothing is ever uploaded — not your audio, not your findings.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#status">Get in touch about the alpha</a>
+        <a class="btn ghost" href="#checks">See what it catches</a>
+      </div>
+    </div>
+    <div class="shotwrap">
+      <img src="shot-results.png" alt="Dubbing QC results screen: a row of check tiles, mostly green, one flagged Blocker for a missing line, and a findings table with session timecode and measurement." loading="lazy">
+      <p class="shotcap">A real run — one of four issues it caught on a planted test session, down to the frame.</p>
+    </div>
+  </section>
+
+  <section id="checks">
+    <div class="wrap">
+      <h2>What it checks</h2>
+      <p class="intro">Every threshold is measured, not guessed — against planted defects, real delivery-QC reports, and listening tests.</p>
+      <ul class="checklist">
+        <li>Missing lines and efforts (breaths, laughs, reactions)</li>
+        <li>Laughs the dub drops — also under dub speech</li>
+        <li>Walla and crowd the dub is missing</li>
+        <li>Extra sounds in the dub the OV doesn't have</li>
+        <li>Reverb and pan that don't match the OV</li>
+        <li>Whole-line sync shifts, and frame-accurate sync with printmasters</li>
+        <li>Cut-off line endings</li>
+        <li>Clicks, pops and dropouts</li>
+        <li>Clipping and file-format problems</li>
+        <li>EQ / voice-treatment mismatches (phone, radio)</li>
+        <li>LFE content the dub adds, drops or mis-routes</li>
+        <li>File naming against the OV's own convention</li>
+        <li>Original-language audio or words left in the dub</li>
+        <li>Printmaster sync and loudness against the OV</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="export">
+    <div class="wrap">
+      <h2>Markers land straight in your DAW</h2>
+      <p class="intro">Export writes the findings as DAW markers plus a PDF report — pick a format, drop it into your session, and step through the list against picture.</p>
+      <div class="shotwrap" style="margin-top:0">
+        <img src="shot-ready.png" alt="Dubbing QC main window: original and dub stem cards, frame rate, OV language and optional printmaster inputs." loading="lazy">
+      </div>
+      <div class="daw-row">
+        <span class="daw-pill">Pro Tools (.mid)</span>
+        <span class="daw-pill">Logic (.mid)</span>
+        <span class="daw-pill">Nuendo (.csv)</span>
+        <span class="daw-pill">Cubase (.csv)</span>
+        <span class="daw-pill">PDF report</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>How it works</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Drop in both versions</h3>
+          <p>Split-mono 5.1 WAVs for the original and the dub — same length, same timeline. Printmasters are optional, for frame-accurate sync and loudness.</p>
+        </div>
+        <div class="card">
+          <h3>Run the checks</h3>
+          <p>A full episode runs in under a minute. Every check is listed with its session timecode, length and exact measurement.</p>
+        </div>
+        <div class="card">
+          <h3>Export and review</h3>
+          <p>Markers, a PDF report, and separate review files for the candidates the audio alone can't judge — so a QC operator always makes the final call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="wrap">
+      <div class="status-card">
+        <h2>Where things stand</h2>
+        <p>Dubbing QC is in private alpha, in active use by a pilot dubbing studio. It isn't publicly available yet — thresholds are still being validated against real episodes and real client QC reports before a wider release.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <p>Dubbing QC · built by RedPixl s.r.o. · everything runs on your Mac.</p>
+  <nav><a href="privacy.html">Privacy</a></nav>
+</div></footer>
+
+</body>
+</html>

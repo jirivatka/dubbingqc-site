@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Dubbing QC</title>
+<meta name="description" content="What Dubbing QC does and does not send anywhere. Everything runs on your Mac; audio and findings are never uploaded.">
+<meta name="theme-color" content="#127a52">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="icon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  main.wrap { padding: 56px 24px 64px; max-width: 760px; }
+  h1 { font-size: 38px; margin: 0 0 10px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 28px; }
+  .card { margin: 24px 0; }
+  h2 { font-size: 22px; margin: 34px 0 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14.5px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--code-bg); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="mark" href="/"><img src="icon-512.png" alt="">Dubbing QC</a>
+  <nav><a href="/">Home</a><a href="privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 30 October 2026</p>
+
+  <div class="card" style="background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 26px;">
+    <p><strong>The short version.</strong> Dubbing QC runs entirely on your Mac. Your audio, your findings and your reports are never uploaded anywhere. The app has no analytics and no tracking of any kind.</p>
+  </div>
+
+  <h2>What never leaves your Mac</h2>
+  <p>Every check — missing lines, reverb and pan, sync, clicks, EQ, printmaster comparison and the rest — runs locally on the audio you give it. Markers, PDF reports and review files are written to a folder you choose, on your own disk. Nothing about a session, an episode or a finding is sent to us or to any third party.</p>
+
+  <h2>Speech recognition</h2>
+  <p>Two checks can optionally use speech recognition — confirming a missing line by its words, and finding original-language speech left in the dub. It is <strong>off by default</strong>. When switched on, it uses Apple's on-device model only; no server-based recognition is used. macOS's own permission dialog says speech data "will be sent to Apple" — that is Apple's standard wording for every app requesting the permission, not something this app does. A full run with it switched on was measured with every process's network traffic logged, and no connection was made by the app or any speech service during that run.</p>
+
+  <h2>Studio and project details</h2>
+  <table>
+    <tr><th>What</th><th>Where it lives</th></tr>
+    <tr><td>Studio name, contact, logo</td><td>Stored on your Mac only (<code>UserDefaults</code>), printed on your own PDF reports and marker files</td></tr>
+    <tr><td>Production, client, episode, QC-by, notes</td><td>Stored on your Mac only, printed on your own reports</td></tr>
+    <tr><td>Client audio, QC reports you compare against</td><td>Read from disk, never copied anywhere, never sent anywhere</td></tr>
+  </table>
+
+  <h2>This website</h2>
+  <p>This page and the rest of the site are static files with no analytics, no cookies and no tracking.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the date above will change with it.</p>
+</main>
+
+<footer><div class="wrap">
+  <p>Dubbing QC · built by RedPixl s.r.o.</p>
+  <nav><a href="/">Home</a></nav>
+</div></footer>
+
+</body>
+</html>
