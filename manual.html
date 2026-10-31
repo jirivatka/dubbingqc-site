@@ -289,7 +289,7 @@ html { scroll-behavior: smooth; }
       <li><a href="#markers">Markers in your DAW</a></li>
       <li><a href="#season">Check a season</a></li>
       <li><a href="#details">Studio and project details</a></li>
-      <li><a href="#settings">Thresholds</a></li>
+      <li><a href="#settings">Thresholds and delivery profiles</a></li>
       <li><a href="#speech">Speech recognition</a></li>
       <li><a href="#checks">What each check looks for</a></li>
       <li><a href="#limits">Known limits</a></li>
@@ -414,15 +414,16 @@ html { scroll-behavior: smooth; }
       <h2>Studio and project details</h2>
       <ul>
         <li><strong>Studio</strong> (<span class="ui">Dubbing QC › Settings… › Studio</span>, set once): studio name, contact for the PDF footer, a default "QC by" name and a logo.</li>
-        <li><strong>Project</strong> (the document button in the header, per job): production, client, episode (read from the file name, editable), dub language, QC by, version/delivery and notes. They're remembered for the next episode; the button always shows the production and episode so an old name doesn't slip onto a new report.</li>
+        <li><strong>Project</strong> (the document button in the header, per job): delivery profile, production, client, episode (read from the file name, editable), dub language, QC by, version/delivery and notes. They're remembered for the next episode; the button always shows the production and episode so an old name doesn't slip onto a new report.</li>
       </ul>
       <p>They're printed on the PDF, in the marker README and in the season summary, and stored on your Mac only.</p>
     </section>
 
     <section id="settings">
-      <h2>Thresholds</h2>
-      <p><span class="ui">Dubbing QC › Settings… › Thresholds</span> lets you switch any check off and adjust the main limits (sync shift, reverb gap, pan, EQ, how many efforts are marked, and others). Every limit shows its measured default, and <span class="ui">Reset to measured defaults</span> restores them.</p>
-      <p>Anything you change is printed in the PDF and the README, and the header shows an orange <span class="ui">Custom thresholds</span> badge. A loosened run can't be mistaken for a standard one.</p>
+      <h2>Thresholds and delivery profiles</h2>
+      <p><span class="ui">Dubbing QC › Settings… › Thresholds</span> is a library of <strong>delivery profiles</strong> — named sets of which checks run and their limits (sync shift, reverb gap, pan, EQ, how many efforts are marked, and others). <span class="ui">Measured defaults</span> is built in and can't be edited or deleted; duplicate it to start your own profile for a client's house rules, then edit, rename or delete your copy freely.</p>
+      <p>Pick which profile a job uses in the <span class="ui">Project</span> popover, next to production and client — so it travels with the job, not with the Mac. A profile can be exported to a file and shared with a freelance mixer working the same show, and imported the same way.</p>
+      <p>Any profile other than <span class="ui">Measured defaults</span> is printed as <strong>custom, unverified</strong> everywhere it shows up — the header badge, the PDF, the marker README. A loosened or custom run can never be mistaken for the standard one.</p>
     </section>
 
     <section id="speech">
