@@ -357,7 +357,7 @@ html { scroll-behavior: smooth; }
       <p>Three checks produce far more candidates than anyone wants in a session, and nothing in the audio says which ones a QC operator would flag:</p>
       <ul>
         <li><strong>Missing efforts</strong> (breaths, laughs, reactions): the 20 most audible become main markers; all the others, often 250 or more, go into an <em>effort review</em> file.</li>
-        <li><strong>Level jumps</strong> (a line much louder or quieter against the OV than its neighbours): all go into a <em>level review</em> file. In practice, most of them are intended performance differences.</li>
+        <li><strong>Level jumps</strong> (a line much louder or quieter against the OV than its neighbours): all go into a <em>level review</em> file, never the main markers — this check is advisory only. Across three test episodes, most flagged jumps turned out not to be a loudness difference at all: a breath or background sound present in one version and missing in the other moves the measured level even though the actual dialogue matches. Real level mismatches do happen (roughly 1 in 3), but the tool can't yet tell them apart from a content gap, so every flag needs a listen.</li>
         <li><strong>OV audio in the dub</strong> (the dub reuses the original recording: a kept song, walla, a breath): all go into an <em>OV audio review</em> file. In practice, every one is intended. Listen for an original-language line that should have been dubbed. With speech recognition on, any words heard are shown (<span class="mono">OV AUDIO, WORDS HEARD?</span>), but sung lyrics are recognised too.</li>
       </ul>
       <p>Import the review files onto a separate marker track, or leave them out.</p>
@@ -454,7 +454,7 @@ html { scroll-behavior: smooth; }
           <tr><td class="mk"><span class="marker">EQ: dub lacks lows 34 dB</span></td><td>A voice treatment (phone, radio) on one version only, or a strongly different sound.</td><td>No false alarms; all planted phone EQs found.</td></tr>
           <tr><td class="mk"><span class="marker">LFE MISSING</span> <span class="marker">LFE -15 dB vs OV</span> <span class="marker">LFE EXTRA (not in OV)</span> <span class="marker">LFE FULL-BAND</span></td><td>The dub dialogue stem's LFE against the OV's: missing where the OV has it, 10 dB or more lower or higher, present where the OV has none, or carrying full-band sound (dialogue routed to the LFE).</td><td>Measured material had no LFE in its dialogue stems, so this was verified on planted LFE only: every planted case found.</td></tr>
           <tr><td class="mk"><span class="marker">CLICK/POP</span> <span class="marker">CLIPPING C</span></td><td>Sample-level clicks, dropouts to zero, and full-scale clipping in the dub.</td><td>All planted clicks found.</td></tr>
-          <tr><td class="mk"><span class="marker">EFFORT REVIEW 12/277</span> <span class="marker">LEVEL +7.1 dB</span></td><td>The review files: every further missing effort, and every level jump of 7 dB or more.</td><td>Level: 2 of 13 heard were real. Judge by ear.</td></tr>
+          <tr><td class="mk"><span class="marker">EFFORT REVIEW 12/277</span> <span class="marker">LEVEL +7.1 dB</span></td><td>The review files: every further missing effort, and every level jump of 7 dB or more.</td><td>Level: across three episodes, about 1 in 3 flags were a real loudness difference — most of the rest were a missing or extra sound (a breath, background noise), not a level problem. Judge by ear.</td></tr>
         </tbody>
       </table></div>
     </section>
