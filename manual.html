@@ -384,7 +384,7 @@ html { scroll-behavior: smooth; }
         <li>Destination: <span class="ui">Clip List</span> (no MIDI track is created). Location: where the stem starts in your session.</li>
         <li>Leave <span class="ui">Import Tempo Map from MIDI File</span> off if the session runs at 120 BPM, the default. The markers are written at 120 BPM; at another tempo they land in the wrong place.</li>
       </ol>
-      <p>Markers arrive as memory locations.</p>
+      <p>Markers arrive as memory locations. Confirmed working in real studio use.</p>
 
       <h3>Nuendo / Cubase</h3>
       <ol>
@@ -392,7 +392,7 @@ html { scroll-behavior: smooth; }
         <li><span class="ui">File › Import › Marker from CSV</span>, choose the <code>.markers.csv</code> file.</li>
         <li>Assign columns: Name → Name, Timecode In → Start, Timecode Out → End, Description → Description. Using <em>Category</em> as the split column gives one marker track per kind of problem.</li>
       </ol>
-      <p>Timecodes in the CSV are absolute session timecode.</p>
+      <p>Timecodes in the CSV are absolute session timecode. The CSV follows Nuendo's documented marker-import format, but we haven't yet confirmed it in a real Nuendo session — if you use Nuendo, <a href="forum/">let us know</a> how it goes.</p>
 
       <h3>Logic Pro</h3>
       <p><span class="ui">File › Open…</span> the <code>.markers.mid</code> file: a new project opens with all markers.</p>
