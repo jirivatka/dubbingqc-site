@@ -17,6 +17,9 @@
 <meta property="og:image" content="icon-512.png">
 <meta name="twitter:card" content="summary_large_image">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body id="top">
@@ -28,9 +31,8 @@
     <a href="#export">Export</a>
     <a href="manual.html">Manual</a>
     <a href="forum/">Support</a>
-    <a href="#status">Status</a>
     <a href="privacy.html">Privacy</a>
-    <a href="eula.html">EULA</a>
+    <a class="buy" href="#pricing">Get Dubbing QC →</a>
   </nav>
 </div></header>
 
@@ -38,12 +40,12 @@
   <section class="hero">
     <div class="wrap">
       <img class="hero-icon" src="icon-512.png" alt="Dubbing QC app icon">
-      <span class="badge">Alpha · testing with dubbing studios</span>
+      <span class="badge">Beta · Mac App Store TestFlight open</span>
       <h1>Check the dub against the original.<br>Before the client does.</h1>
       <p class="lead">Dubbing QC compares a dub's dialogue stem with the original-version (OV) stem and lists the places a mixer should listen to — missing lines and efforts, reverb and pan that don't match, drifted sync, clicks, walla and laughs the dub dropped.</p>
       <p class="sub">Runs entirely on your Mac. Nothing is ever uploaded — not your audio, not your findings.</p>
       <div class="hero-actions">
-        <a class="btn primary" href="#status">Get in touch about the alpha</a>
+        <a class="btn primary" href="#pricing">Get Dubbing QC</a>
         <a class="btn ghost" href="#checks">See what it catches</a>
         <a class="btn ghost" href="Dubbing-QC-Sample-Report.pdf">Download a sample report (PDF)</a>
       </div>
@@ -124,11 +126,68 @@
     </div>
   </section>
 
+  <section id="pricing">
+    <div class="wrap">
+      <h2>Get Dubbing QC</h2>
+      <p class="intro">Dubbing QC is in beta, free to test today. Pricing for the finished release is still being worked out with the pilot studio — here's how to get it either way.</p>
+      <div class="pricing-card">
+        <div class="price-amount">Beta — free to test</div>
+        <p class="price-note">Pricing for the 1.0 release isn't set yet.</p>
+        <div class="hero-actions" style="margin-top:0">
+          <a class="btn primary" href="#status">Join the Mac App Store beta</a>
+          <a class="btn ghost" href="forum/">Ask about direct purchase</a>
+        </div>
+        <!-- Once pricing is final: swap the forum link above for a Gumroad or Stripe Payment Link
+             (both accounts already exist) pointing straight at checkout — no backend needed. -->
+        <div class="pricing-tiers">
+          <div class="tier">
+            <h4>Mac App Store</h4>
+            <p>Sandboxed build, automatic updates, familiar install. TestFlight beta open now.</p>
+            <span class="tier-price">Price TBD</span>
+          </div>
+          <div class="tier">
+            <h4>Direct from this site</h4>
+            <p>Same engine, notarised DMG, no App Store account needed. Coming once pricing is final.</p>
+            <span class="tier-price">Price TBD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Questions studios ask first</h2>
+      <div class="faq">
+        <details open>
+          <summary>Does my audio ever leave my Mac?</summary>
+          <p>No. Every check, including speech recognition, runs on-device. Nothing is uploaded — not your audio, not the findings, not even anonymous usage data.</p>
+        </details>
+        <details>
+          <summary>What file formats do you need?</summary>
+          <p>Split-mono 5.1 WAVs for the original and the dub, same length and timeline. Printmasters are optional and unlock frame-accurate sync and loudness checks.</p>
+        </details>
+        <details>
+          <summary>How is this different from a human QC pass?</summary>
+          <p>It isn't a replacement — it's a first pass that never gets tired. On reverb and pan mismatches it already catches more than manual review typically does; a QC operator still makes the final call on anything audio alone can't judge.</p>
+        </details>
+        <details>
+          <summary>Can I try it before paying anything?</summary>
+          <p>Yes — the app is free to use during the beta. Join the Mac App Store TestFlight above, or get in touch for a direct beta build.</p>
+        </details>
+        <details>
+          <summary>What DAWs does the export work with?</summary>
+          <p>Pro Tools and Logic get MIDI marker files; Nuendo and Cubase get CSV. A PDF report is included either way.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section id="status">
     <div class="wrap">
       <div class="status-card">
         <h2>Where things stand</h2>
-        <p>Dubbing QC is in private alpha, in active use by a pilot dubbing studio. It isn't publicly available yet — thresholds are still being validated against real episodes and real client QC reports before a wider release.</p>
+        <p>Dubbing QC is in beta, in active use by a pilot dubbing studio, with a Mac App Store TestFlight now open. Thresholds are still being validated against real episodes and real client QC reports before the 1.0 release.</p>
       </div>
     </div>
   </section>
