@@ -39,10 +39,14 @@ Re-run that (and re-copy the source file) whenever the app's manual changes.
 
 A tiny static feed the app polls (at most once a day) to tell a currently-licensed user a newer version exists —
 see `UpdateCheckManager` in the app's own repo. Not an App Store/Sparkle-style auto-updater, just a version number
-and a link; the app never downloads anything from it. `{"version": "...", "url": "..."}`, where `url` is wherever
-someone should go to read about / get that version (today the pricing section; once distribution is sorted, point
-it straight at the download). **Update `version` on every release** — leaving it stale means licensed users never
-hear about an update; setting it ahead of a real release means they get a banner pointing nowhere real yet.
+and a link; the app never downloads anything from it. `{"version": "...", "url": "..."}`.
+
+**Update both fields on every release** — leaving `version` stale means licensed users never hear about an update;
+setting it ahead of a real release means they get a banner pointing nowhere real yet. `url` today points at this
+repo's GitHub Release asset (`releases/latest/download/<name>`) — **the filename bakes in the version** (GitHub
+replaces spaces in an uploaded asset's name with dots, e.g. `Dubbing.QC.1.0.dmg`), so `url` must be re-pointed at
+the new asset's exact name each release too, not just bumped in spirit. Verify the exact asset name after
+uploading (`gh release view <tag> --json assets`) rather than guessing it from the DMG's own filename.
 
 ## Support forum
 
