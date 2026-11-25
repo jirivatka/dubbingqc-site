@@ -41,12 +41,13 @@ A tiny static feed the app polls (at most once a day) to tell a currently-licens
 see `UpdateCheckManager` in the app's own repo. Not an App Store/Sparkle-style auto-updater, just a version number
 and a link; the app never downloads anything from it. `{"version": "...", "url": "..."}`.
 
-**Update both fields on every release** — leaving `version` stale means licensed users never hear about an update;
-setting it ahead of a real release means they get a banner pointing nowhere real yet. `url` today points at this
-repo's GitHub Release asset (`releases/latest/download/<name>`) — **the filename bakes in the version** (GitHub
-replaces spaces in an uploaded asset's name with dots, e.g. `Dubbing.QC.1.0.dmg`), so `url` must be re-pointed at
-the new asset's exact name each release too, not just bumped in spirit. Verify the exact asset name after
-uploading (`gh release view <tag> --json assets`) rather than guessing it from the DMG's own filename.
+**On every release:** create the GitHub Release and upload the notarised DMG under the fixed name
+**`Dubbing-QC.dmg`** (copy it to that name first; GitHub turns spaces in a file name into dots). Every download link
+points at `releases/latest/download/Dubbing-QC.dmg`: this file's `url`, the redpixl.dev account page and the
+redpixl.dev Dubbing QC page. So "latest" always serves the newest build and none of those links change. Then bump
+`version` here. Leaving it stale means licensed users never hear about the update; bumping it before the release
+exists sends them to a download that's still the old build. Check what's attached with
+`gh release view <tag> --json assets` rather than assuming.
 
 ## Support forum
 
