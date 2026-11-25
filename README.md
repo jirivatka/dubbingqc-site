@@ -14,6 +14,9 @@ files, not a live domain. Once a domain is registered:
    `185.199.108–111.153`, or a `CNAME` record to `jirivatka.github.io` for a
    subdomain).
 4. Enable the custom domain in the repo's Settings → Pages.
+5. redpixl.dev links here with the `jirivatka.github.io/dubbingqc-site/` address: update both links in the
+   `redpixl-licensing` repo (`public/apps/dubbing-qc/index.html` and `public/apps/index.html`) and redeploy it.
+   Also `UpdateCheckManager.feedURL` in the app, which needs a new build.
 
 Until then the site is live at the default `github.io` Pages URL.
 
