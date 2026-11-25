@@ -35,6 +35,15 @@ from it with headless Chrome:
 
 Re-run that (and re-copy the source file) whenever the app's manual changes.
 
+## latest.json
+
+A tiny static feed the app polls (at most once a day) to tell a currently-licensed user a newer version exists —
+see `UpdateCheckManager` in the app's own repo. Not an App Store/Sparkle-style auto-updater, just a version number
+and a link; the app never downloads anything from it. `{"version": "...", "url": "..."}`, where `url` is wherever
+someone should go to read about / get that version (today the pricing section; once distribution is sorted, point
+it straight at the download). **Update `version` on every release** — leaving it stale means licensed users never
+hear about an update; setting it ahead of a real release means they get a banner pointing nowhere real yet.
+
 ## Support forum
 
 `forum/index.html` forwards to the GitHub Discussions at
