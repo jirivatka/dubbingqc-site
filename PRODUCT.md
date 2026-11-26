@@ -33,7 +33,7 @@ A studio receives OV stems and records/mixes the dub; before delivery the QC lea
 - Voice: plain, precise, studio-professional; no hype.
 
 ## Evidence on Hand
-- Tested on a real 55-minute TV episode that also had a professional delivery-QC report: the app flagged all 5 reverb and pan issues in that report, and found 11 more real reverb and pan differences the human QC pass had missed, each confirmed by listening. May be stated publicly, anonymised: no client, broadcaster or show name.
+- Tested on several real TV episodes, two of them with professional delivery-QC reports. Against one of those reports the app flagged all 5 reverb and pan issues listed, and found 11 more real reverb and pan differences in that episode the human QC pass had missed, each confirmed by listening. May be stated publicly, anonymised: no client, broadcaster or show name. Do not present the testing as a single episode (Jiri, 2026-11-26: reads amateur and is untrue).
 - Thresholds measured against real QC reports, planted-defect tests and listening tests.
 - Pro Tools marker import confirmed by a partner sound engineer; Nuendo/Cubase CSV follows the documented format but is not yet confirmed in a real session.
 - Sample PDF report: `Dubbing-QC-Sample-Report.pdf`. Manual: `manual.html` + `DubbingQC-Manual.pdf`.
