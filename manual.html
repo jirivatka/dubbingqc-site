@@ -280,7 +280,7 @@ html { scroll-behavior: smooth; }
     </div>
   </div>
   <div class="meta">
-    <span class="chip">Version <strong>1.0</strong></span>
+    <span class="chip">Version <strong>1.0.1</strong></span>
     <span class="chip">macOS <strong>14 or later</strong></span>
     <span class="chip">Apple Silicon + Intel</span>
   </div>
@@ -292,6 +292,7 @@ html { scroll-behavior: smooth; }
     <ol>
       <li><a href="#first">Read this first</a></li>
       <li><a href="#install">Install</a></li>
+      <li><a href="#licence">Licence and free trial</a></li>
       <li><a href="#files">Prepare the files</a></li>
       <li><a href="#episode">Check an episode</a></li>
       <li><a href="#results">Read the results</a></li>
@@ -318,11 +319,24 @@ html { scroll-behavior: smooth; }
     <section id="install">
       <h2>Install</h2>
       <ol class="steps">
-        <li>Open <code>Dubbing QC 1.0.dmg</code> and drag <span class="ui">Dubbing QC</span> onto the Applications folder.</li>
+        <li>Open the downloaded <code>Dubbing-QC.dmg</code> and drag <span class="ui">Dubbing QC</span> onto the Applications folder.</li>
         <li>Start it from Applications. The first time, macOS asks whether you want to open an app downloaded from the Internet: click <span class="ui">Open</span>. The app is signed and notarised by Apple, so there's no "unidentified developer" block, even offline.</li>
         <li>The first time it reads a folder on your Desktop, Documents or an external drive, macOS asks whether Dubbing QC may access it. Click <span class="ui">Allow</span>. Until you answer, the folder card says <em>Reading the folder…</em></li>
       </ol>
-      <p>Nothing else is installed: no drivers, no plug-ins, no account.</p>
+      <p>Nothing else is installed: no drivers, no plug-ins, no password to remember.</p>
+    </section>
+
+    <section id="licence">
+      <h2>Licence and free trial</h2>
+      <p>Checks run with a licence. Without one, <span class="ui">Run QC</span> opens the licence sheet instead of starting the check. The same panel is in <span class="ui">Settings › License</span>.</p>
+      <ul>
+        <li><strong>Activate:</strong> enter the email you bought the licence with and click <span class="ui">Activate</span>. The licence is then tied to this Mac. A rental's days start counting at this first activation.</li>
+        <li><strong>Free trial:</strong> enter your email and click <span class="ui">Start 3-day trial</span>. Every check works during the trial. There is one trial per person and per Mac.</li>
+        <li><strong>Offline:</strong> activating needs an internet connection once. After that the licence works without a network until it ends.</li>
+        <li><strong>Another Mac:</strong> sign in on your account page at <a href="https://redpixl.dev/account/">redpixl.dev/account</a> and click <span class="ui">Move to another Mac</span>, then activate on the new Mac. <span class="ui">Remove from this Mac</span> in the app only deletes the licence from this Mac; it does not free it for another one.</li>
+        <li><strong>Emergency code:</strong> if a Mac dies mid-job, the account page gives you a 5-day code. Paste it under <span class="ui">Have an emergency code?</span> on any Mac. One code can be active at a time.</li>
+      </ul>
+      <p>The licence check sends only your email and a random identifier for this Mac to redpixl.dev. Audio, reports and file names never leave your Mac.</p>
     </section>
 
     <section id="files">
@@ -522,6 +536,9 @@ html { scroll-behavior: smooth; }
         <thead><tr><th>You see</th><th>What to do</th></tr></thead>
         <tbody>
           <tr><td><em>The application "Dubbing QC" can't be opened.</em></td><td>The disk image was altered on its way to you: WhatsApp and some other chat apps re-package files they send. Get the <code>.dmg</code> by e-mail, AirDrop or a download link instead, delete the broken copy from Applications, and install again.</td></tr>
+          <tr><td><em>Dubbing QC needs a licence</em></td><td>There is no licence on this Mac, or it has ended. Activate with the email you bought with, or start the free trial (see <a href="#licence">Licence and free trial</a>).</td></tr>
+          <tr><td><em>This licence is activated on another Mac</em></td><td>Free it on your <a href="https://redpixl.dev/account/">account page</a> with <span class="ui">Move to another Mac</span>, then click <span class="ui">Activate</span> here.</td></tr>
+          <tr><td><em>The free trial has already been used</em></td><td>A trial is one per person and per Mac. Rent a licence on <a href="https://redpixl.dev/apps/dubbing-qc/#buy">redpixl.dev</a> to keep going.</td></tr>
           <tr><td>A card stays on <em>Reading the folder…</em></td><td>macOS is waiting for your answer to its folder-access question; the dialog may be behind other windows. Click <span class="ui">Allow</span>.</td></tr>
           <tr><td><em>No .L.wav file in …</em></td><td>The folder has no file ending in <code>.L.wav</code>. Check the channel names (see <a href="#files">Prepare the files</a>).</td></tr>
           <tr><td>Markers land at the wrong place in Pro Tools</td><td>Check the session runs at 120 BPM, and that the import location is where the stem starts.</td></tr>
@@ -535,7 +552,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <a class="totop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l-7 7h4v7h6v-7h4z"/></svg></a>
-<footer>Dubbing QC 1.0 · Everything runs on your Mac; no audio or report leaves it. &copy; 2026 RedPixl s.r.o.</footer>
+<footer>Dubbing QC 1.0.1 · Everything runs on your Mac; no audio or report leaves it. &copy; 2026 RedPixl s.r.o.</footer>
 
 <div id="lb" class="lb" onclick="this.classList.remove('open')">
   <img id="lb-img" src="" alt="">
