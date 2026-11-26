@@ -39,3 +39,5 @@ Disallow: /
 
 User-agent: cohere-ai
 Disallow: /
+
+Sitemap: https://dubbingqc.com/sitemap.xml
