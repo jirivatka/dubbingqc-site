@@ -234,6 +234,15 @@ html { scroll-behavior: smooth; }
   }
   .pdfbar a.pdfbtn:hover { opacity: 0.85; }
   @media print { .sitenav, .pdfbar { display: none; } }
+  /* Screenshots and their lightbox (same look as the home page; the manual doesn't load style.css). */
+  .shotwrap { margin: 18px 0 8px; }
+  .shotwrap img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(20, 30, 24, 0.12); }
+  a.shot { display: block; cursor: zoom-in; border-radius: 12px; }
+  .lb { position: fixed; inset: 0; z-index: 100; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; background: rgba(12, 16, 14, 0.9); cursor: zoom-out; }
+  .lb.open { display: flex; }
+  .lb img { max-width: min(96vw, 1400px); max-height: 82vh; border-radius: 10px; box-shadow: 0 30px 90px rgba(0,0,0,0.5); }
+  .lb p { color: #ece7d8; font-size: 14.5px; max-width: 760px; text-align: center; margin: 0; }
+  @media print { .lb { display: none !important; } .shotwrap img { box-shadow: none; } }
 </style>
 
 </head>
