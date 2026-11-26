@@ -83,10 +83,11 @@ nav a.buy { color: var(--accent); font-weight: 600; }
 
 .shotwrap.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .shotwrap.gallery .shotcap { grid-column: 1 / -1; }
+.shotwrap.gallery.two { grid-template-columns: repeat(2, 1fr); padding: 0; }
 a.shot { display: block; cursor: zoom-in; border-radius: 16px; }
 a.shot img { transition: transform 0.15s ease, box-shadow 0.15s ease; }
 a.shot:hover img { transform: translateY(-3px); box-shadow: 0 40px 90px rgba(20, 30, 24, 0.2); }
-@media (max-width: 760px) { .shotwrap.gallery { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .shotwrap.gallery, .shotwrap.gallery.two { grid-template-columns: 1fr; } }
 
 .lb {
   position: fixed; inset: 0; background: rgba(10, 16, 12, 0.92); display: none;
