@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dubbing QC — Check a Dub Against the Original, Before You Ship It</title>
 <meta name="description" content="Dubbing QC is a Mac app for dubbing studios. It compares a dub's dialogue audio against the original version and flags what a QC pass would catch — missing lines, reverb and pan drift, sync, clicks, walla, laughs and more — then exports the findings as DAW markers for Pro Tools, Logic, Nuendo and Cubase.">
-<meta name="theme-color" content="#127a52">
+<meta name="theme-color" content="#0b0d0c">
 <link rel="icon" href="favicon-32.png" sizes="32x32">
 <link rel="icon" href="icon-512.png" sizes="512x512">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -19,209 +19,316 @@
 <meta property="og:image" content="https://dubbingqc.com/shot-results.png">
 <meta name="twitter:image" content="https://dubbingqc.com/shot-results.png">
 <meta name="twitter:card" content="summary_large_image">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="preload" href="fonts/sofia-sans-extra-condensed-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sofia-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="home.css">
 </head>
 <body id="top">
 
-<header><div class="wrap">
-  <a class="mark" href="/"><img src="icon-512.png" alt="">Dubbing QC</a>
-  <nav>
-    <a href="#checks">What it checks</a>
+<header class="top"><div class="wrap">
+  <a class="mark" href="/"><img src="icon-512.png" alt="" width="32" height="32">Dubbing QC</a>
+  <nav aria-label="Main">
+    <a href="#checks">Checks</a>
     <a href="#export">Export</a>
+    <a href="#prices">Prices</a>
     <a href="manual.html">Manual</a>
     <a href="forum/">Support</a>
-    <a href="privacy.html">Privacy</a>
-    <a class="buy" href="#pricing">Get Dubbing QC →</a>
+    <a class="btn btn-go" href="https://github.com/jirivatka/dubbingqc-site/releases/latest/download/Dubbing-QC.dmg">Download</a>
   </nav>
 </div></header>
 
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <img class="hero-icon" src="icon-512.png" alt="Dubbing QC app icon">
-      <span class="badge">In development</span>
-      <h1>Check the dub against the original.<br>Before the client does.</h1>
-      <p class="lead">Dubbing QC compares a dub's dialogue stem with the original-version (OV) stem and lists the places a mixer should listen to — missing lines and efforts, reverb and pan that don't match, drifted sync, clicks, walla and laughs the dub dropped.</p>
-      <p class="sub">Runs entirely on your Mac. Nothing is ever uploaded — not your audio, not your findings.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#pricing">Get Dubbing QC</a>
-        <a class="btn ghost" href="#checks">See what it catches</a>
-        <a class="btn ghost" href="Dubbing-QC-Sample-Report.pdf">Download a sample report (PDF)</a>
+  <section class="lineup" aria-labelledby="hero-title">
+    <nav class="bars" aria-label="Check families">
+      <a href="#f-lines" style="background:var(--b-white)"><span>01–02</span><b>Lines</b></a>
+      <a href="#f-laughs" style="background:var(--b-yellow)"><span>03–05</span><b>Laughs &amp; walla</b></a>
+      <a href="#f-space" style="background:var(--b-cyan)"><span>06</span><b>Reverb &amp; pan</b></a>
+      <a href="#f-sync" style="background:var(--b-green)"><span>07–08</span><b>Sync</b></a>
+      <a class="inv" href="#f-voice" style="background:var(--b-magenta)"><span>09–10</span><b>Voice</b></a>
+      <a class="inv" href="#f-signal" style="background:var(--b-red)"><span>11–13</span><b>Signal</b></a>
+      <a class="inv" href="#f-files" style="background:var(--b-blue)"><span>14</span><b>Files</b></a>
+    </nav>
+    <div class="pluge" aria-hidden="true"><i style="background:var(--b-blue)"></i><i></i><i style="background:var(--b-magenta)"></i><i></i><i style="background:var(--b-cyan)"></i><i></i><i style="background:var(--b-white)"></i></div>
+
+    <div class="slate">
+      <h1 id="hero-title">Catch it before your client's QC does</h1>
+      <p class="promise">Dubbing QC lines the dub up against the original, channel by channel, and lists every place a mixer should listen: dropped lines and laughs, reverb and pan that don't match, sync slips, clicks.</p>
+      <div class="fields">
+        <div><b>Mac app</b>macOS 14 or later</div>
+        <div><b>On your Mac</b>no audio leaves it</div>
+        <div><b>About a minute</b>per 55-min episode</div>
+      </div>
+      <div class="actions">
+        <a class="btn btn-go" href="https://github.com/jirivatka/dubbingqc-site/releases/latest/download/Dubbing-QC.dmg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Try it free for 3 days</a>
+        <a class="btn btn-line" href="#prices">See prices</a>
+        <small>Download, open, and start the free trial in the app. No card needed.</small>
       </div>
     </div>
-    <div class="shotwrap gallery">
-      <a class="shot" href="shot-ready.png" data-caption="Drop in the original and dub — the app reads format, length and frame rate from the files.">
-        <img src="shot-ready.png" alt="Dubbing QC main window: original and dub stem cards, ready to run." loading="lazy">
-      </a>
-      <a class="shot" href="shot-checking.png" data-caption="A full episode runs in under a minute.">
-        <img src="shot-checking.png" alt="Dubbing QC running a check, with a progress indicator over the stem cards." loading="lazy">
-      </a>
-      <a class="shot" href="shot-results.png" data-caption="A full run on a real 55-minute episode: missing lines and efforts, reverb and pan that differ from the original, sync slips and clicks — each down to the frame.">
-        <img src="shot-results.png" alt="Dubbing QC results screen: a row of check tiles including several flagged Blockers, and a dense findings table with session timecode and measurement for each issue." loading="lazy">
-      </a>
-      <p class="shotcap">A real run, start to finish — click any screen to see it full size.</p>
+    <div class="burnin tc" aria-hidden="true" data-clock>07:00:00:00</div>
+  </section>
+
+  <section class="tracks" aria-labelledby="tracks-title">
+    <div class="wrap">
+      <div class="tracks-head">
+        <div>
+          <h2 id="tracks-title">The dub, lined up against the original</h2>
+          <p>Both versions run on one timeline. Wherever the dub parts from the original, Dubbing QC plants a flag with the session timecode and what it measured.</p>
+        </div>
+        <div class="switch" role="group" aria-label="Show">
+          <button type="button" data-view="ov" aria-pressed="false">Original</button>
+          <button type="button" data-view="dub" aria-pressed="false">Dub</button>
+          <button type="button" data-view="both" aria-pressed="true">Both</button>
+        </div>
+      </div>
+      <div class="stage" data-view="both">
+        <div class="lane lane-ov"><span class="lane-label">Original · C</span><svg data-wave="ov" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+        <div class="lane lane-dub"><span class="lane-label">Dub · C</span><svg data-wave="dub" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+        <div class="playhead" aria-hidden="true"></div>
+      </div>
+      <ol class="legend" aria-label="Findings"></ol>
+      <p class="stage-note">Illustration of three findings from a real check. The timecodes and measurements are from the results screen further down.</p>
     </div>
   </section>
 
-  <section id="checks">
+  <section class="proof" aria-labelledby="proof-title">
     <div class="wrap">
-      <h2>What it checks</h2>
-      <p class="intro">Every threshold is measured, not guessed — against planted defects, real delivery-QC reports, and listening tests.</p>
-      <ul class="checklist">
-        <li>Missing lines and efforts (breaths, laughs, reactions)</li>
-        <li>Laughs the dub drops — also under dub speech</li>
-        <li>Walla and crowd the dub is missing</li>
-        <li>Extra sounds in the dub the OV doesn't have</li>
-        <li>Reverb and pan that don't match the OV</li>
-        <li>Whole-line sync shifts, and frame-accurate sync with printmasters</li>
-        <li>Cut-off line endings</li>
-        <li>Clicks, pops and dropouts</li>
-        <li>Clipping and file-format problems</li>
-        <li>EQ / voice-treatment mismatches (phone, radio)</li>
-        <li>LFE content the dub adds, drops or mis-routes</li>
-        <li>File naming against the OV's own convention</li>
-        <li>Original-language audio or words left in the dub</li>
-        <li>Printmaster sync and loudness against the OV</li>
-      </ul>
-      <div class="shotwrap gallery two">
-        <a class="shot" href="shot-season.png" data-caption="Season mode: drop in one folder of episodes per side. Episodes pair by their episode code and run one after another, each saved as it finishes.">
-          <img src="shot-season.png" alt="Season mode: three episodes paired by episode code, each checked, with the first episode's results below." loading="lazy">
+      <h2 id="proof-title">Measured on a real episode</h2>
+      <div class="proof-grid">
+        <a class="shot crop" href="shot-results.png" data-caption="A full check of a 55-minute episode: every finding with session timecode, length and what was measured.">
+          <img src="shot-results.png" alt="Dubbing QC results: check tiles with Blocker flags and a findings table with session timecodes and measurements." width="3316" height="2114" loading="lazy">
         </a>
-        <a class="shot" href="shot-fileqc.png" data-caption="File QC: format, length, loudness, true peak and naming of the original and the dub, side by side.">
-          <img src="shot-fileqc.png" alt="File QC details: sample rate, channels, length, loudness and true peak of the original and the dub, side by side." loading="lazy">
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="export">
-    <div class="wrap">
-      <h2>Markers land straight in your DAW</h2>
-      <p class="intro">Export writes the findings as DAW markers plus a PDF report — pick a format, drop it into your session, and step through the list against picture.</p>
-      <div class="shotwrap" style="margin-top:0">
-        <a class="shot" href="shot-ready.png" data-caption="Original and dub stem cards, frame rate, OV language and optional printmaster inputs.">
-          <img src="shot-ready.png" alt="Dubbing QC main window: original and dub stem cards, frame rate, OV language and optional printmaster inputs." loading="lazy">
-        </a>
-      </div>
-      <div class="daw-row">
-        <span class="daw-pill">Pro Tools (.mid)</span>
-        <span class="daw-pill">Logic (.mid)</span>
-        <span class="daw-pill">Nuendo (.csv)</span>
-        <span class="daw-pill">Cubase (.csv)</span>
-        <span class="daw-pill">PDF report</span>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>How it works</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Drop in both versions</h3>
-          <p>Split-mono 5.1 WAVs for the original and the dub — same length, same timeline. Printmasters are optional, for frame-accurate sync and loudness.</p>
-        </div>
-        <div class="card">
-          <h3>Run the checks</h3>
-          <p>A full episode runs in under a minute. Every check is listed with its session timecode, length and exact measurement.</p>
-        </div>
-        <div class="card">
-          <h3>Export and review</h3>
-          <p>Markers, a PDF report, and separate review files for the candidates the audio alone can't judge — so a QC operator always makes the final call.</p>
+        <div class="ledger">
+          <p style="margin:18px 0 6px">Tested on a real 55-minute TV episode that also went through a professional delivery-QC pass.</p>
+          <div class="ledger-row"><span>Reverb and pan issues in the client's QC report, flagged by Dubbing QC</span><b class="ok">5 of 5</b></div>
+          <div class="ledger-row"><span>More reverb and pan differences the human pass missed, each confirmed by listening</span><b class="extra">11</b></div>
+          <p class="small">Every threshold was measured against real QC reports, planted defects and listening tests. Findings are places to listen, not verdicts: the mixer makes the call.</p>
+          <p class="small"><a href="Dubbing-QC-Sample-Report.pdf">Download a sample PDF report</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="pricing">
+  <section class="checks" id="checks" aria-labelledby="checks-title">
     <div class="wrap">
-      <h2>Get Dubbing QC</h2>
-      <p class="intro">Dubbing QC isn't publicly available yet. Pricing for the release is still being worked out — here's how to stay in the loop either way.</p>
-      <div class="pricing-card">
-        <div class="price-amount">Not yet available</div>
-        <p class="price-note">Pricing for the 1.0 release isn't set yet.</p>
-        <div class="hero-actions" style="margin-top:0">
-          <a class="btn ghost" href="forum/">Get in touch</a>
-        </div>
-        <!-- Once pricing is final: add a Gumroad or Stripe Payment Link
-             (both accounts already exist) pointing straight at checkout — no backend needed. -->
-        <div class="pricing-tiers">
-          <div class="tier">
-            <h4>Direct from this site</h4>
-            <p>Notarised DMG, no account needed. Coming once pricing is final.</p>
-            <span class="tier-price">Price TBD</span>
-          </div>
-        </div>
+      <h2 id="checks-title">Fourteen checks, one pass</h2>
+      <p class="intro">Grouped as the bars above. With printmasters added, sync turns frame-accurate and loudness is compared too.</p>
+      <div class="families">
+        <div class="family" id="f-lines"><h3><i style="background:var(--b-white)"></i>Lines</h3><ol>
+          <li><span class="tc">01</span><div><b>Missing lines and efforts</b><p>Breaths, laughs and reactions the original has and the dub doesn't.</p></div></li>
+          <li><span class="tc">02</span><div><b>Cut-off line endings</b><p>Lines that stop mid-sound instead of finishing.</p></div></li></ol></div>
+        <div class="family" id="f-laughs"><h3><i style="background:var(--b-yellow)"></i>Laughs &amp; walla</h3><ol>
+          <li><span class="tc">03</span><div><b>Laughs the dub drops</b><p>Also when the laugh sits under dub speech.</p></div></li>
+          <li><span class="tc">04</span><div><b>Walla and crowd the dub is missing</b><p>Background voices that went quiet in the dub.</p></div></li>
+          <li><span class="tc">05</span><div><b>Extra sounds in the dub</b><p>Sounds the original doesn't have.</p></div></li></ol></div>
+        <div class="family" id="f-space"><h3><i style="background:var(--b-cyan)"></i>Reverb &amp; pan</h3><ol>
+          <li><span class="tc">06</span><div><b>Reverb and pan that don't match the original</b><p>Measured on the side channels against the centre, line by line.</p></div></li></ol></div>
+        <div class="family" id="f-sync"><h3><i style="background:var(--b-green)"></i>Sync</h3><ol>
+          <li><span class="tc">07</span><div><b>Whole-line sync shifts</b><p>Lines that start or end out of place; frame-accurate with printmasters.</p></div></li>
+          <li><span class="tc">08</span><div><b>Printmaster sync and loudness</b><p>The dub's printmaster against the original's.</p></div></li></ol></div>
+        <div class="family" id="f-voice"><h3><i style="background:var(--b-magenta)"></i>Voice</h3><ol>
+          <li><span class="tc">09</span><div><b>EQ and voice-treatment mismatches</b><p>Phone, radio and other treatments the dub didn't copy.</p></div></li>
+          <li><span class="tc">10</span><div><b>Original-language audio left in the dub</b><p>Stretches of the original recording, and words in the original language.</p></div></li></ol></div>
+        <div class="family" id="f-signal"><h3><i style="background:var(--b-red)"></i>Signal</h3><ol>
+          <li><span class="tc">11</span><div><b>Clicks, pops and dropouts</b><p>Short jumps far above their surroundings.</p></div></li>
+          <li><span class="tc">12</span><div><b>Clipping and file-format problems</b><p>Sample rate, bit depth, channels, length and peaks.</p></div></li>
+          <li><span class="tc">13</span><div><b>LFE problems</b><p>Low-frequency content the dub adds, drops or routes wrongly.</p></div></li></ol></div>
+        <div class="family" id="f-files"><h3><i style="background:var(--b-blue)"></i>Files</h3><ol>
+          <li><span class="tc">14</span><div><b>File naming</b><p>Checked against the original's own naming convention.</p></div></li></ol></div>
+      </div>
+      <div class="pair">
+        <figure style="margin:0"><a class="shot crop" href="shot-season.png" data-caption="Season mode: one folder of episodes per side. Episodes pair by their episode code and run one after another, each saved as it finishes.">
+          <img src="shot-season.png" alt="Season mode: three episodes paired by episode code, each checked, with the first episode's results below." width="3316" height="2114" loading="lazy"></a>
+          <figcaption>Season mode checks a whole folder of episodes in one go.</figcaption></figure>
+        <figure style="margin:0"><a class="shot crop crop-mid" href="shot-fileqc.png" data-caption="File QC: format, length, loudness, true peak and naming of the original and the dub, side by side.">
+          <img src="shot-fileqc.png" alt="File QC details: sample rate, channels, length, loudness and true peak of the original and the dub, side by side." width="3316" height="2114" loading="lazy"></a>
+          <figcaption>File QC puts the two versions' formats side by side.</figcaption></figure>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="count" aria-labelledby="count-title">
     <div class="wrap">
-      <h2>Questions studios ask first</h2>
-      <div class="faq">
-        <details open>
-          <summary>Does my audio ever leave my Mac?</summary>
-          <p>No. Every check, including speech recognition, runs on-device. Nothing is uploaded — not your audio, not the findings, not even anonymous usage data.</p>
-        </details>
-        <details>
-          <summary>What file formats do you need?</summary>
-          <p>Split-mono 5.1 WAVs for the original and the dub, same length and timeline. Printmasters are optional and unlock frame-accurate sync and loudness checks.</p>
-        </details>
-        <details>
-          <summary>How is this different from a human QC pass?</summary>
-          <p>It isn't a replacement — it's a first pass that never gets tired. On reverb and pan mismatches it already catches more than manual review typically does; a QC operator still makes the final call on anything audio alone can't judge.</p>
-        </details>
-        <details>
-          <summary>What DAWs does the export work with?</summary>
-          <p>Pro Tools and Logic get MIDI marker files; Nuendo and Cubase get CSV. A PDF report is included either way.</p>
-        </details>
+      <h2 id="count-title">Three, two, one</h2>
+      <div class="leader">
+        <figure><div class="dial" aria-hidden="true"><span class="ring"></span><span class="ring"></span><b>3</b></div>
+          <figcaption><h3>Drop in both versions</h3><p>Split-mono 5.1 WAVs for the original and the dub, same length, same timeline. Printmasters are optional.</p></figcaption></figure>
+        <figure><div class="dial" aria-hidden="true"><span class="ring"></span><span class="ring"></span><b>2</b></div>
+          <figcaption><h3>Run the check</h3><p>About a minute for a 55-minute episode. Every finding comes with its session timecode, length and measurement.</p></figcaption></figure>
+        <figure><div class="dial" aria-hidden="true"><span class="ring"></span><span class="ring"></span><b>1</b></div>
+          <figcaption><h3>Listen and fix</h3><p>Import the markers into your session and step through them against picture. A person makes every call.</p></figcaption></figure>
       </div>
     </div>
   </section>
 
-  <section id="status">
+  <section class="export" id="export" aria-labelledby="export-title">
     <div class="wrap">
-      <div class="status-card">
-        <h2>Where things stand</h2>
-        <p>Dubbing QC is in active development, being tested internally against real episodes and real client QC reports before release.</p>
+      <h2 id="export-title">Markers land in your session</h2>
+      <div class="export-grid">
+        <div class="formats">
+          <div><span>Pro Tools</span><span class="tc">.mid markers</span></div>
+          <div><span>Logic</span><span class="tc">.mid markers</span></div>
+          <div><span>Nuendo</span><span class="tc">.csv markers</span></div>
+          <div><span>Cubase</span><span class="tc">.csv markers</span></div>
+          <div><span>Every export</span><span class="tc">PDF report</span>
+            <p>Markers use your session's own start timecode. Candidates the audio alone can't judge go to separate review files, so the main list stays short.</p></div>
+        </div>
+        <a class="shot" href="extra-screenshots/shot-export-menu.png" data-caption="The arrow next to Export: everything, a DAW-specific bundle with the PDF, the PDF alone, or markers only in either format.">
+          <img src="extra-screenshots/shot-export-menu.png" alt="The Export menu: everything, Pro Tools or Logic plus PDF, Nuendo or Cubase plus PDF, PDF only, and markers-only options." width="3374" height="2114" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prices" id="prices" aria-labelledby="prices-title">
+    <div class="wrap">
+      <h2 id="prices-title">Rent it for the job</h2>
+      <div class="rate">
+        <div class="rate-row trial"><h3>Free trial</h3><p>Every check, on your own episode. Once per person and per Mac.</p><div class="amount">3 days<small>free</small></div></div>
+        <div class="rate-row"><h3>Rent</h3><p>A fixed number of days for one job. The days start when you first activate it.</p><div class="amount">from €49<small>10 days €49 · 30 days €89 · 60 days €159</small></div></div>
+        <div class="rate-row"><h3>One year</h3><p>365 days of full access and updates. One payment, no automatic renewal.</p><div class="amount">€399<small>one payment</small></div></div>
+      </div>
+      <div class="rate-actions">
+        <a class="btn btn-go" href="https://github.com/jirivatka/dubbingqc-site/releases/latest/download/Dubbing-QC.dmg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Try it free for 3 days</a>
+        <a class="btn btn-line" href="https://redpixl.dev/apps/dubbing-qc/#buy">Rent on redpixl.dev</a>
+        <p>Prices exclude VAT. Licences are sold by RedPixl s.r.o. on redpixl.dev.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <h2 id="faq-title">Questions studios ask first</h2>
+      <div class="faq-list">
+        <details open><summary>Does my audio ever leave my Mac?</summary>
+          <p>No. Every check, including speech recognition, runs on the Mac. Nothing is uploaded: not your audio, not the findings, not usage data. The licence check sends only your email and a random ID for the Mac.</p></details>
+        <details><summary>What files do I need?</summary>
+          <p>Split-mono 5.1 WAVs for the original and the dub, same length and timeline. Printmasters are optional and add frame-accurate sync and loudness checks.</p></details>
+        <details><summary>Does it replace a human QC pass?</summary>
+          <p>No. It's a first pass that never gets tired. On a real episode it flagged every reverb and pan issue in the client's QC report and found eleven more the human pass missed. A person still makes the final call on everything it lists.</p></details>
+        <details><summary>Which DAWs does the export work with?</summary>
+          <p>Pro Tools and Logic get MIDI marker files; Nuendo and Cubase get CSV. A PDF report comes with every export.</p></details>
+        <details><summary>Does it work offline?</summary>
+          <p>Yes. Activating needs the internet once; after that the licence works without a network until it ends.</p></details>
       </div>
     </div>
   </section>
 </main>
 
-<a class="totop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l-7 7h4v7h6v-7h4z"/></svg></a>
-<footer><div class="wrap">
-  <p>Dubbing QC &middot; everything runs on your Mac. &copy; 2026 RedPixl s.r.o.</p>
-  <nav><a href="manual.html">Manual</a><a href="forum/">Support</a><a href="privacy.html">Privacy</a><a href="eula.html">EULA</a></nav>
-</div></footer>
+<footer class="foot">
+  <div class="pluge" aria-hidden="true"><i style="background:var(--b-blue)"></i><i></i><i style="background:var(--b-magenta)"></i><i></i><i style="background:var(--b-cyan)"></i><i></i><i style="background:var(--b-white)"></i></div>
+  <div class="wrap">
+    <p>Dubbing QC · everything runs on your Mac · © 2026 RedPixl s.r.o.</p>
+    <nav aria-label="Footer"><a href="manual.html">Manual</a><a href="forum/">Support</a><a href="privacy.html">Privacy</a><a href="eula.html">EULA</a></nav>
+  </div>
+</footer>
 
-<div id="lb" class="lb" onclick="this.classList.remove('open')">
-  <img id="lb-img" src="" alt="">
+<div id="lb" class="lb" tabindex="-1" role="dialog" aria-modal="true" aria-label="Screenshot">
   <p id="lb-cap"></p>
 </div>
+
 <script>
 (function () {
-  var lb = document.getElementById('lb');
-  var lbImg = document.getElementById('lb-img');
-  var lbCap = document.getElementById('lb-cap');
+  // Lightbox
+  var lb = document.getElementById('lb'), lbCap = document.getElementById('lb-cap'), lbImg = document.createElement('img');
+  lb.insertBefore(lbImg, lbCap);
   document.querySelectorAll('a.shot').forEach(function (a) {
     a.addEventListener('click', function (e) {
       e.preventDefault();
       lbImg.src = a.getAttribute('href');
+      lbImg.alt = (a.querySelector('img') || {}).alt || '';
       lbCap.textContent = a.getAttribute('data-caption') || '';
+      opener = a;
       lb.classList.add('open');
+      lb.focus();
     });
   });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') lb.classList.remove('open');
+  var opener = null;
+  function closeLb() { if (!lb.classList.contains('open')) return; lb.classList.remove('open'); if (opener) opener.focus(); }
+  lb.onclick = closeLb;
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || (e.key === 'Enter' && document.activeElement === lb)) closeLb(); });
+
+  // The lined-up tracks: one deterministic waveform, the dub a copy with real gaps and one late line.
+  var START = 7 * 3600, SPAN = 20 * 60;           // 07:00:00 to 07:20:00
+  var finds = [
+    { t: 8 * 60 + 36.3, len: 0.6, kind: 'gap',   label: '07:08:36:08 Missing effort' },
+    { t: 10 * 60 + 43.2, len: 1.3, kind: 'gap',  label: '07:10:43:05 Laugh missing' },
+    { t: 14 * 60 + 38.2, len: 5.5, kind: 'shift', label: '07:14:38:05 Sync +1500 ms' }
+  ];
+  var N = 220, seed = 7, amp = [];
+  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  for (var i = 0; i < N; i++) { var s = Math.sin(i / 7) * 0.25 + 0.55; amp.push(rnd() < 0.12 ? 0.06 : Math.max(0.08, Math.min(1, s * (0.45 + rnd() * 0.75)))); }
+  function x(t) { return t / SPAN * 100; }
+  function draw(svg, dub) {
+    var w = 1000, h = 100, bw = w / N, out = '';
+    for (var i = 0; i < N; i++) {
+      var t = i / N * SPAN, a = amp[i];
+      if (dub) finds.forEach(function (f) {
+        var pad = SPAN / N * 1.5;
+        if (f.kind === 'gap' && t > f.t - pad && t < f.t + f.len + pad * 2) a = 0;
+        if (f.kind === 'shift' && t > f.t - pad && t < f.t + pad * 1.2) a = 0;
+        if (f.kind === 'shift' && t >= f.t + pad * 1.2 && t < f.t + pad * 3.5) a = amp[Math.max(0, i - 2)];
+      });
+      var bh = Math.max(2, a * 80);
+      out += '<rect x="' + (i * bw + bw * 0.2).toFixed(1) + '" y="' + ((h - bh) / 2).toFixed(1) + '" width="' + (bw * 0.6).toFixed(1) + '" height="' + bh.toFixed(1) + '"/>';
+    }
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    svg.innerHTML = out;
+  }
+  draw(document.querySelector('[data-wave="ov"]'), false);
+  draw(document.querySelector('[data-wave="dub"]'), true);
+  var stage = document.querySelector('.stage'), dubLane = document.querySelector('.lane-dub'), flags = [];
+  finds.forEach(function (f) {
+    var box = document.createElement('span');
+    box.className = f.kind === 'gap' ? 'gapbox' : 'shift';
+    box.style.left = (x(f.t) - 0.9) + '%';
+    box.style.width = f.kind === 'gap' ? '2.6%' : '3.4%';
+    dubLane.appendChild(box);
+    var fl = document.createElement('span');
+    fl.className = 'flag';
+    fl.style.left = x(f.t) + '%';
+    fl.style.setProperty('--lift', ((finds.length - 1 - flags.length) * 26) + 'px');
+    if (x(f.t) > 45) fl.classList.add('flip');
+    fl.innerHTML = '<span>' + f.label + '</span>';
+    stage.appendChild(fl);
+    flags.push({ el: fl, t: f.t });
+    var li = document.createElement('li'); li.className = 'tc'; li.textContent = f.label; document.querySelector('.legend').appendChild(li);
   });
+
+  // One switch transforms the demo.
+  document.querySelectorAll('.switch button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.switch button').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      stage.setAttribute('data-view', b.getAttribute('data-view'));
+    });
+  });
+
+  // One clock drives the burnt-in timecode and the playhead.
+  var clock = document.querySelector('[data-clock]'), head = document.querySelector('.playhead');
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function tc(sec) {
+    var s = START + sec, f = Math.floor((s % 1) * 25);
+    return pad2(Math.floor(s / 3600)) + ':' + pad2(Math.floor(s / 60) % 60) + ':' + pad2(Math.floor(s) % 60) + ':' + pad2(f);
+  }
+  function show(sec) {
+    clock.textContent = tc(sec);
+    head.style.left = x(sec) + '%';
+    flags.forEach(function (f) { f.el.classList.toggle('hot', sec >= f.t && sec < f.t + 40); });
+  }
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still) { show(10 * 60 + 43.2); return; }
+  // Run the clock only while the line-up or the tracks are on screen and the tab is visible.
+  var LOOP = 24000, t0 = performance.now(), visible = 0, raf = 0;
+  function tick(now) { show(((now - t0) % LOOP) / LOOP * SPAN); raf = requestAnimationFrame(tick); }
+  function sync() { var on = visible > 0 && !document.hidden; if (on && !raf) raf = requestAnimationFrame(tick); if (!on && raf) { cancelAnimationFrame(raf); raf = 0; } }
+  show(0);
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { visible += e.isIntersecting ? 1 : (e.target._seen ? -1 : 0); e.target._seen = e.isIntersecting; }); visible = Math.max(0, visible); sync(); });
+    io.observe(document.querySelector('.lineup')); io.observe(document.querySelector('.tracks'));
+  } else { visible = 1; }
+  document.addEventListener('visibilitychange', sync);
+  sync();
 })();
 </script>
-
 </body>
 </html>

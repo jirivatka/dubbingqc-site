@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-26T21:53:53Z",
+  "title": "Design System: Dubbing QC",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground Black",
+        "canonical": "#0b0d0c",
+        "tonalRamp": [
+          "#030404",
+          "#060606",
+          "#080908",
+          "#0a0b0b",
+          "#0b0d0c",
+          "#3c3d3d",
+          "#797a79",
+          "#b6b6b6"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#131614",
+        "tonalRamp": [
+          "#060706",
+          "#0a0b0a",
+          "#0d0f0e",
+          "#111312",
+          "#131614",
+          "#424543",
+          "#7d7f7e",
+          "#b8b9b8"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#2a2e2b",
+        "tonalRamp": [
+          "#0d0e0d",
+          "#151716",
+          "#1d201e",
+          "#252826",
+          "#2a2e2b",
+          "#555855",
+          "#8a8c8a",
+          "#bfc0bf"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#ecece6",
+        "tonalRamp": [
+          "#474745",
+          "#767673",
+          "#a5a5a1",
+          "#d0d0ca",
+          "#ecece6",
+          "#f0f0eb",
+          "#f5f5f1",
+          "#f9f9f8"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#a9ada7",
+        "tonalRamp": [
+          "#333432",
+          "#545654",
+          "#767975",
+          "#959893",
+          "#a9ada7",
+          "#babdb9",
+          "#d0d2cf",
+          "#e5e6e5"
+        ]
+      },
+      "bar-white": {
+        "role": "secondary",
+        "displayName": "Bar White",
+        "canonical": "#dcdcd5",
+        "tonalRamp": [
+          "#424240",
+          "#6e6e6a",
+          "#9a9a95",
+          "#c2c2bb",
+          "#dcdcd5",
+          "#e3e3dd",
+          "#ecece8",
+          "#f4f4f2"
+        ]
+      },
+      "bar-yellow": {
+        "role": "secondary",
+        "displayName": "Bar Yellow",
+        "canonical": "#c4b43c",
+        "tonalRamp": [
+          "#3b3612",
+          "#625a1e",
+          "#897e2a",
+          "#ac9e35",
+          "#c4b43c",
+          "#d0c363",
+          "#dfd694",
+          "#ede8c4"
+        ]
+      },
+      "bar-cyan": {
+        "role": "secondary",
+        "displayName": "Bar Cyan",
+        "canonical": "#19aab5",
+        "tonalRamp": [
+          "#083336",
+          "#0c555a",
+          "#12777f",
+          "#16969f",
+          "#19aab5",
+          "#47bbc4",
+          "#80d0d6",
+          "#bae6e9"
+        ]
+      },
+      "bar-green": {
+        "role": "primary",
+        "displayName": "Bar Green",
+        "canonical": "#1f9d5c",
+        "tonalRamp": [
+          "#092f1c",
+          "#104e2e",
+          "#166e40",
+          "#1b8a51",
+          "#1f9d5c",
+          "#4cb17d",
+          "#84c9a5",
+          "#bce2ce"
+        ]
+      },
+      "bar-magenta": {
+        "role": "secondary",
+        "displayName": "Bar Magenta",
+        "canonical": "#b8378f",
+        "tonalRamp": [
+          "#37102b",
+          "#5c1c48",
+          "#812664",
+          "#a2307e",
+          "#b8378f",
+          "#c65fa5",
+          "#d891c1",
+          "#eac3dd"
+        ]
+      },
+      "bar-red": {
+        "role": "secondary",
+        "displayName": "Bar Red",
+        "canonical": "#cf3a2e",
+        "tonalRamp": [
+          "#3e110e",
+          "#681d17",
+          "#912920",
+          "#b63328",
+          "#cf3a2e",
+          "#d96158",
+          "#e5938c",
+          "#f1c4c0"
+        ]
+      },
+      "bar-blue": {
+        "role": "secondary",
+        "displayName": "Bar Blue",
+        "canonical": "#2f48c4",
+        "tonalRamp": [
+          "#0e163b",
+          "#182462",
+          "#213289",
+          "#293fac",
+          "#2f48c4",
+          "#596dd0",
+          "#8d9adf",
+          "#c1c8ed"
+        ]
+      },
+      "flag": {
+        "role": "tertiary",
+        "displayName": "Finding Flag",
+        "canonical": "#f5d000",
+        "tonalRamp": [
+          "#4a3e00",
+          "#7a6800",
+          "#ac9200",
+          "#d8b700",
+          "#f5d000",
+          "#f7d933",
+          "#fae573",
+          "#fcf1b2"
+        ]
+      },
+      "gap": {
+        "role": "tertiary",
+        "displayName": "Dropped Red",
+        "canonical": "#e0483b",
+        "tonalRamp": [
+          "#431612",
+          "#70241e",
+          "#9d3229",
+          "#c53f34",
+          "#e0483b",
+          "#e66d62",
+          "#ee9a93",
+          "#f6c8c4"
+        ]
+      },
+      "button-green": {
+        "role": "primary",
+        "displayName": "Go Green",
+        "canonical": "#127a52",
+        "tonalRamp": [
+          "#052519",
+          "#093d29",
+          "#0d5539",
+          "#106b48",
+          "#127a52",
+          "#419575",
+          "#7db6a0",
+          "#b8d7cb"
+        ]
+      },
+      "button-green-hover": {
+        "role": "primary",
+        "displayName": "Go Green Hover",
+        "canonical": "#0e6845",
+        "tonalRamp": [
+          "#041f15",
+          "#073422",
+          "#0a4930",
+          "#0c5c3d",
+          "#0e6845",
+          "#3e866a",
+          "#7aac99",
+          "#b7d2c7"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Slate Display",
+        "purpose": "Slate h1, caps."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "h2 per section, caps."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "h3, family, rate and FAQ headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading copy, 52-70ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Lane labels, field keys, buttons."
+      },
+      "timecode": {
+        "displayName": "Timecode",
+        "purpose": "Times, lengths, measurements; tabular mono."
+      }
+    },
+    "shadows": [
+      {
+        "name": "screenshot-lift",
+        "value": "0 24px 60px rgba(0,0,0,.55)",
+        "purpose": "Lifts a real screenshot off the black ground."
+      },
+      {
+        "name": "lightbox-lift",
+        "value": "0 30px 90px rgba(0,0,0,.6)",
+        "purpose": "Lightbox image."
+      },
+      {
+        "name": "hot-flag",
+        "value": "drop-shadow(0 2px 10px rgba(245,208,0,.55))",
+        "purpose": "Active finding flag glow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "All state transitions, 0.2-0.35s."
+      },
+      {
+        "name": "one-clock",
+        "value": "24s loop",
+        "purpose": "Drives burn-in timecode, playhead and hot flag; runs only while visible; frozen under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "980px"
+      },
+      {
+        "name": "phone",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Go Button",
+      "kind": "button",
+      "refersTo": "button-go",
+      "description": "Primary action; white text on contrast green.",
+      "html": "<a class=\"ds-btn ds-go\" href=\"#\">Download</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;font:800 22px/1 var(--slate,'Arial Narrow',sans-serif);text-transform:uppercase;letter-spacing:.04em;padding:16px 22px;border:2px solid currentColor;text-decoration:none;transition:background .2s,color .2s,transform .2s}.ds-btn:focus-visible{outline:3px solid #f5d000;outline-offset:3px}.ds-go{background:#127a52;border-color:#127a52;color:#fff}.ds-go:hover{background:#0e6845;border-color:#0e6845;transform:translateY(-1px)}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action; ink outline, inverts on hover.",
+      "html": "<a class=\"ds-btn ds-line\" href=\"#\">See the checks</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;font:800 22px/1 var(--slate,'Arial Narrow',sans-serif);text-transform:uppercase;letter-spacing:.04em;padding:16px 22px;border:2px solid currentColor;text-decoration:none;transition:background .2s,color .2s,transform .2s}.ds-btn:focus-visible{outline:3px solid #f5d000;outline-offset:3px}.ds-line{color:#ecece6}.ds-line:hover{background:#ecece6;color:#0b0d0c}"
+    },
+    {
+      "name": "Colour Bars",
+      "kind": "nav",
+      "refersTo": "bar-green",
+      "description": "Seven bars, each a check family, with a PLUGE strip beneath.",
+      "html": "<div class=\"ds-bars\"><b style=\"background:#dcdcd5\">Lines</b><b style=\"background:#c4b43c\">Laughs</b><b style=\"background:#19aab5\">Space</b><b style=\"background:#1f9d5c\">Sync</b><b style=\"background:#b8378f\">Voice</b><b style=\"background:#cf3a2e\">Signal</b><b style=\"background:#2f48c4;color:#fff\">Files</b></div>",
+      "css": ".ds-bars{display:grid;grid-template-columns:repeat(7,1fr);height:160px}.ds-bars b{display:flex;align-items:flex-end;padding:12px;font:800 20px/1 'Arial Narrow',sans-serif;text-transform:uppercase;color:#0b0d0c}"
+    },
+    {
+      "name": "Slate",
+      "kind": "card",
+      "refersTo": "slate",
+      "description": "Ground box with ink border, caps title and key/value fields.",
+      "html": "<div class=\"ds-slate\"><h1>Dubbing QC</h1><div class=\"ds-f\"><span>Original</span><span>Dub</span><span>Length</span></div></div>",
+      "css": ".ds-slate{background:#0b0d0c;color:#ecece6;border:2px solid #ecece6;padding:32px 36px;max-width:520px}.ds-slate h1{margin:0;font:800 56px/.95 'Arial Narrow',sans-serif;text-transform:uppercase}.ds-f{display:flex;gap:22px;margin-top:20px;padding:10px 0;border-top:1px solid #2a2e2b;border-bottom:1px solid #2a2e2b;font:500 14px ui-monospace,monospace;color:#a9ada7}"
+    },
+    {
+      "name": "View Switch",
+      "kind": "chip",
+      "refersTo": "switch-active",
+      "description": "Segmented control; pressed segment inverts.",
+      "html": "<div class=\"ds-sw\"><button>Original</button><button>Dub</button><button aria-pressed=\"true\">Both</button></div>",
+      "css": ".ds-sw{display:inline-flex;border:2px solid #ecece6}.ds-sw button{font:800 20px 'Arial Narrow',sans-serif;text-transform:uppercase;background:none;color:#ecece6;border:0;padding:10px 18px;cursor:pointer}.ds-sw button+button{border-left:2px solid #ecece6}.ds-sw button[aria-pressed=true]{background:#ecece6;color:#0b0d0c}.ds-sw button:focus-visible{outline:3px solid #f5d000;outline-offset:3px}"
+    },
+    {
+      "name": "Lane with Flag and Gap",
+      "kind": "custom",
+      "refersTo": "lane",
+      "description": "Waveform lane; yellow pennant marks a finding, dashed red box a dropped passage.",
+      "html": "<div class=\"ds-lane\"><span class=\"ds-ll\">Dub · C</span><i class=\"ds-gap\"></i><i class=\"ds-flag\"><u>10:43:05</u></i></div>",
+      "css": ".ds-lane{position:relative;height:92px;margin:40px 0 0;background:#131614}.ds-ll{position:absolute;left:0;top:0;padding:6px 10px;background:#131614;font:800 16px 'Arial Narrow',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:#a9ada7}.ds-gap{position:absolute;top:6px;bottom:6px;left:30%;width:18%;border:2px dashed #e0483b;background:rgba(224,72,59,.08)}.ds-flag{position:absolute;left:62%;top:-34px;height:calc(100% + 34px);width:3px;background:#f5d000}.ds-flag::before{content:'';position:absolute;left:3px;top:0;width:26px;height:18px;background:#f5d000;clip-path:polygon(0 0,100% 0,78% 50%,100% 100%,0 100%)}.ds-flag u{position:absolute;left:34px;top:-2px;text-decoration:none;font:500 13px ui-monospace,monospace;color:#ecece6;background:#0b0d0c;padding:1px 6px;white-space:nowrap}"
+    },
+    {
+      "name": "Rate Row",
+      "kind": "custom",
+      "refersTo": "button-line",
+      "description": "Ruled row: caps title, muted copy, big right-aligned amount.",
+      "html": "<div class=\"ds-rate\"><h3>One year</h3><p>365 days of full access.</p><div class=\"ds-amt\">€399<small>one payment</small></div></div>",
+      "css": ".ds-rate{display:grid;grid-template-columns:1.1fr 2fr auto;gap:28px;align-items:center;padding:26px 0;border-top:2px solid #ecece6;border-bottom:1px solid #2a2e2b;color:#ecece6}.ds-rate h3{margin:0;font:800 34px/.95 'Arial Narrow',sans-serif;text-transform:uppercase}.ds-rate p{margin:0;color:#a9ada7}.ds-amt{font:800 48px/1 'Arial Narrow',sans-serif;text-align:right}.ds-amt small{display:block;font:500 13px ui-monospace,monospace;color:#a9ada7;margin-top:6px}"
+    },
+    {
+      "name": "Countdown Dial",
+      "kind": "custom",
+      "refersTo": "lane",
+      "description": "Leader frame: crosshair, two rings, a big numeral.",
+      "html": "<div class=\"ds-dial\"><span class=\"ds-r1\"></span><span class=\"ds-r2\"></span><b>3</b></div>",
+      "css": ".ds-dial{position:relative;aspect-ratio:4/3;background:#1c1f1d;display:grid;place-items:center;overflow:hidden;color:#ecece6}.ds-dial::before,.ds-dial::after{content:'';position:absolute;background:#3b403c}.ds-dial::before{left:50%;top:0;bottom:0;width:2px}.ds-dial::after{top:50%;left:0;right:0;height:2px}.ds-r1,.ds-r2{position:absolute;width:62%;aspect-ratio:1;border-radius:50%;border:2px solid #d9dbd4}.ds-r2{width:74%;border-color:#6b706c}.ds-dial b{position:relative;z-index:1;font:800 120px/1 'Arial Narrow',sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Line-Up",
+    "overview": "The page is the head of a delivery master: colour bars, a slate, burnt-in timecode, then the dub lined up against the original. The ground is near-black, corners square, display type a condensed character-generator face in caps, measurements in a mono. Each of the seven 75% bars owns one check family; the yellow flag marks findings only; dropped audio is an honest dashed gap.",
+    "keyCharacteristics": [
+      "Black ground, square corners, 1px rules and 2px ink borders; depth by tonal panel.",
+      "Seven bars = seven families; colour carries meaning.",
+      "Caps condensed display, humanist body, tabular mono for time and measurements.",
+      "One clock drives timecode, playhead and flag highlight."
+    ],
+    "rules": [
+      {
+        "name": "The One Flag Rule",
+        "body": "Yellow #f5d000 marks a finding. Never use it for buttons, links, decoration or brand emphasis.",
+        "section": "colors"
+      },
+      {
+        "name": "The Bar Owns Its Family Rule",
+        "body": "A family's colour appears on its bar, its contents marker and nowhere that implies another family.",
+        "section": "colors"
+      },
+      {
+        "name": "The Contrast Green Rule",
+        "body": "Text on green uses #127a52; the lighter bar green is for fills without text weight.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Means Measured Rule",
+        "body": "Anything that is a time, length or measurement is mono with tabular numerals; prose never is.",
+        "section": "typography"
+      },
+      {
+        "name": "The Caps Are Display Only Rule",
+        "body": "Capitals belong to the Slate face; body copy stays sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Unless Evidence Rule",
+        "body": "Shadows exist only to lift a real screenshot off black or to light an active finding.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do give every check family its own bar colour and use it only for that family.",
+      "Do set times and measurements in the TC mono with tabular numerals.",
+      "Do draw dropped audio as a dashed red gap and shifted sync as a dashed yellow box.",
+      "Do keep text on green at #127a52 with white.",
+      "Do keep the focus ring yellow, 3px, offset 3px."
+    ],
+    "donts": [
+      "Don't use #f5d000 for anything but a finding (and focus/selection, which are the same flag).",
+      "Don't add rounded corners, cards, or glow outside the hot flag.",
+      "Don't swap the button green for the bar green or the reverse.",
+      "Don't run a second animation clock or any motion that survives reduced-motion."
+    ]
+  }
+}
